@@ -67,8 +67,11 @@ class HeadshotProcessor:
                 st.warning("No face detected. Using center crop.")
                 width, height = self.input_image.size
                 target_ratio = self.target_size[0] / self.target_size[1]
-                crop_width = min(width, int(height * target_ratio))
-                crop_height = min(height, int(width / target_ratio))
+                # Apply zoom_out_factor to center crop as well
+                base_crop_width = min(width, int(height * target_ratio))
+                base_crop_height = min(height, int(width / target_ratio))
+                crop_width = int(base_crop_width * self.zoom_out_factor)
+                crop_height = int(base_crop_height * self.zoom_out_factor)
                 crop_left = (width - crop_width) // 2 + self.shift_x
                 crop_top = (height - crop_height) // 2 + self.shift_y
                 crop_right = crop_left + crop_width
@@ -464,7 +467,7 @@ def main():
                 st.session_state.image_history.pop(0)
             st.session_state.image_history.append(st.session_state.current_image.copy())
             processor = HeadshotProcessor(
-                input_image=st.session_state.current_image,
+                input_image=st.session_state.original_image,
                 target_width=target_width,
                 target_height=target_height,
                 padding_top_ratio=padding_top,
@@ -505,7 +508,7 @@ def main():
         
         # Download button (save without annotations)
         processor = HeadshotProcessor(
-            input_image=st.session_state.current_image,
+            input_image=st.session_state.original_image,
             target_width=target_width,
             target_height=target_height,
             padding_top_ratio=padding_top,
