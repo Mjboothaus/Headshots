@@ -22,7 +22,6 @@ class HeadshotProcessor:
         padding_bottom_ratio: float,
         padding_side_ratio: float,
         border_color: str,
-        annotate: bool = False,
         zoom_out_factor: float = 1.1,
         shift_x: int = 0,
         shift_y: int = 0,
@@ -37,7 +36,6 @@ class HeadshotProcessor:
         }
         self.cascade_path = cascade_path or cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
         self.border_color = border_color
-        self.annotate = annotate
         self.zoom_out_factor = zoom_out_factor
         self.shift_x = shift_x
         self.shift_y = shift_y
@@ -145,93 +143,7 @@ class HeadshotProcessor:
             )
             final_img = final_img.resize(self.target_size, Image.LANCZOS)
             
-            if self.annotate:
-                draw = ImageDraw.Draw(final_img)
-                try:
-                    font = ImageFont.truetype("arial.ttf", 14)
-                except:
-                    font = ImageFont.load_default()
-                
-                if face_box:
-                    orig_width, orig_height = self.input_image.size
-                    final_width, final_height = final_img.size
-                    scale_x = final_width / (crop_right - crop_left)
-                    scale_y = final_height / (crop_bottom - crop_top)
-                    
-                    x, y, w, h = face_box
-                    scaled_x = int((x - crop_left) * scale_x)
-                    scaled_y = int((y - crop_top) * scale_y)
-                    scaled_w = int(w * scale_x)
-                    scaled_h = int(h * scale_y)
-                    
-                    draw.rectangle(
-                        (scaled_x, scaled_y, scaled_x + scaled_w, scaled_y + scaled_h),
-                        outline="green",
-                        width=2
-                    )
-                    draw.text(
-                        (scaled_x, scaled_y - 15),
-                        "Face",
-                        fill="green",
-                        font=font
-                    )
-                    
-                    padding_top_px = int(h * self.padding_ratios["top"] * scale_y)
-                    padding_bottom_px = int(h * self.padding_ratios["bottom"] * scale_y)
-                    padding_side_px = int(w * self.padding_ratios["side"] * scale_x)
-                    
-                    draw.rectangle(
-                        (0, 0, final_width, padding_top_px),
-                        outline="blue",
-                        width=1
-                    )
-                    draw.text(
-                        (10, padding_top_px // 2),
-                        "Top Padding",
-                        fill="blue",
-                        font=font
-                    )
-                    
-                    draw.rectangle(
-                        (0, final_height - padding_bottom_px, final_width, final_height),
-                        outline="red",
-                        width=1
-                    )
-                    draw.text(
-                        (10, final_height - padding_bottom_px // 2),
-                        "Bottom Padding",
-                        fill="red",
-                        font=font
-                    )
-                    
-                    draw.rectangle(
-                        (0, 0, padding_side_px, final_height),
-                        outline="yellow",
-                        width=1
-                    )
-                    draw.rectangle(
-                        (final_width - padding_side_px, 0, final_width, final_height),
-                        outline="yellow",
-                        width=1
-                    )
-                    draw.text(
-                        (padding_side_px // 2, final_height // 2),
-                        "Side",
-                        fill="yellow",
-                        font=font
-                    )
-                
-                draw.rectangle(
-                    (2, 2, final_width - 3, final_height - 3),
-                    outline="white",
-                    width=3
-                )
-                draw.text(
-                    (10, 10),
-                    f"Final Saved Area: {self.target_size[0]}x{self.target_size[1]}",
-                    fill="white",
-                    font=font
-                )
+            # Annotations removed for cleaner UI
             
             return final_img
         
@@ -245,15 +157,14 @@ def main():
     
     st.subheader("Parameter Explanations")
     st.markdown("""
-    - **Target Width/Height**: Final dimensions of the headshot in pixels. Shown as "Final Saved Area" (white rectangle) in the annotated preview.
-    - **Top Padding Ratio**: Adds space above the face (fraction of face height) for headroom. Shown as a blue outline.
-    - **Bottom Padding Ratio**: Adds space below the face for shoulders. Shown as a red outline.
-    - **Side Padding Ratio**: Adds space on the left and right of the face. Shown as yellow outlines.
-    - **Shift X/Y**: Moves the crop box left/right (X) or up/down (Y) in pixels. Positive X shifts right, positive Y shifts down.
-    - **Zoom Out Factor**: Scales the crop box (1.0 = no zoom-out, 1.5 = 50% larger crop). Higher values include more of the image.
-    - **Border Color**: Color of borders added to maintain the target aspect ratio.
-    - **Show Annotations**: Toggles visual overlays (face box, padding areas, final saved area) on the preview. The downloaded image is annotation-free.
-    - **Auto Headshot**: Resets to default settings from config.toml and processes the original image.
+    - **Preset**: Choose a pre-configured setting for common use cases (LinkedIn, Default, or Custom)
+    - **Target Width/Height**: Final dimensions of the headshot in pixels
+    - **Top Padding Ratio**: Adds space above the face (fraction of face height) for headroom
+    - **Bottom Padding Ratio**: Adds space below the face for shoulders
+    - **Side Padding Ratio**: Adds space on the left and right of the face
+    - **Shift X/Y**: Moves the crop box left/right (X) or up/down (Y) in pixels. Positive X shifts right, positive Y shifts down
+    - **Zoom Out Factor**: Scales the crop box (1.0 = no zoom-out, 1.5 = 50% larger crop). Higher values include more of the image
+    - **Border Colour**: Colour of borders added to maintain the target aspect ratio
     """)
     
     # Initialize session state
@@ -274,7 +185,6 @@ def main():
             "shift_y": CONFIG["default"]["shift_y"],
             "zoom_out_factor": CONFIG["default"]["zoom_out_factor"],
             "border_color": CONFIG["default"]["border_color"],
-            "annotate": False,
         }
     
     # File uploader
@@ -299,7 +209,6 @@ def main():
                 padding_bottom_ratio=CONFIG["default"]["padding_bottom"],
                 padding_side_ratio=CONFIG["default"]["padding_side"],
                 border_color=CONFIG["default"]["border_color"],
-                annotate=False,
                 zoom_out_factor=CONFIG["default"]["zoom_out_factor"],
                 shift_x=CONFIG["default"]["shift_x"],
                 shift_y=CONFIG["default"]["shift_y"],
@@ -315,14 +224,56 @@ def main():
                 "shift_y": CONFIG["default"]["shift_y"],
                 "zoom_out_factor": CONFIG["default"]["zoom_out_factor"],
                 "border_color": CONFIG["default"]["border_color"],
-                "annotate": False,
             })
         except UnidentifiedImageError:
             st.error("Cannot identify image file. Please upload a valid PNG or JPG.")
             return
     
-    # Settings
+    # Preset selector
     st.subheader("Headshot Settings")
+    
+    preset_options = ["Custom", "Default", "LinkedIn"]
+    selected_preset = st.selectbox(
+        "Preset Configuration",
+        preset_options,
+        index=0,
+        help="Choose a preset configuration or select Custom to manually adjust all settings"
+    )
+    
+    # Function to apply preset settings
+    def apply_preset(preset_name):
+        if preset_name == "Default":
+            preset_config = CONFIG["default"]
+        elif preset_name == "LinkedIn":
+            preset_config = CONFIG["linkedin"]
+        else:  # Custom
+            return  # Don't change anything for custom
+        
+        # Update session state with preset values
+        st.session_state.control_state.update({
+            "target_width": preset_config["target_width"],
+            "target_height": preset_config["target_height"],
+            "padding_top": preset_config["padding_top"],
+            "padding_bottom": preset_config["padding_bottom"],
+            "padding_side": preset_config["padding_side"],
+            "shift_x": preset_config["shift_x"],
+            "shift_y": preset_config["shift_y"],
+            "zoom_out_factor": preset_config["zoom_out_factor"],
+            "border_color": preset_config["border_color"],
+        })
+        
+        # Force rerun to update sliders
+        st.rerun()
+    
+    # Check if preset changed and apply if not Custom
+    if "last_preset" not in st.session_state:
+        st.session_state.last_preset = "Custom"
+    
+    if selected_preset != st.session_state.last_preset and selected_preset != "Custom":
+        st.session_state.last_preset = selected_preset
+        apply_preset(selected_preset)
+    elif selected_preset == "Custom":
+        st.session_state.last_preset = "Custom"
     col1, col2 = st.columns(2)
     with col1:
         target_width = st.slider(
@@ -399,19 +350,11 @@ def main():
             key="zoom_out_factor"
         )
         border_color = st.color_picker(
-            "Border Color",
+            "Border Colour",
             st.session_state.control_state["border_color"],
-            help="Choose the color for borders added to maintain the target aspect ratio.",
+            help="Choose the colour for borders added to maintain the target aspect ratio.",
             key="border_color"
         )
-    
-    # Annotation toggle
-    annotate = st.checkbox(
-        "Show Annotations on Preview",
-        value=st.session_state.control_state["annotate"],
-        help="Toggle visual overlays (face box, padding areas, final saved area) on the preview. The downloaded image is annotation-free.",
-        key="annotate"
-    )
     
     # Auto Headshot Button
     if st.button("Auto Headshot", help="Reset to default settings from config.toml and process the original image."):
@@ -427,7 +370,6 @@ def main():
                 padding_bottom_ratio=CONFIG["default"]["padding_bottom"],
                 padding_side_ratio=CONFIG["default"]["padding_side"],
                 border_color=CONFIG["default"]["border_color"],
-                annotate=annotate,
                 zoom_out_factor=CONFIG["default"]["zoom_out_factor"],
                 shift_x=CONFIG["default"]["shift_x"],
                 shift_y=CONFIG["default"]["shift_y"],
@@ -443,7 +385,6 @@ def main():
                 "shift_y": CONFIG["default"]["shift_y"],
                 "zoom_out_factor": CONFIG["default"]["zoom_out_factor"],
                 "border_color": CONFIG["default"]["border_color"],
-                "annotate": annotate,
             })
     
     # Process image in real-time
@@ -458,8 +399,7 @@ def main():
             shift_x != st.session_state.control_state["shift_x"] or
             shift_y != st.session_state.control_state["shift_y"] or
             zoom_out_factor != st.session_state.control_state["zoom_out_factor"] or
-            border_color != st.session_state.control_state["border_color"] or
-            annotate != st.session_state.control_state["annotate"]
+            border_color != st.session_state.control_state["border_color"]
         )
         
         if controls_changed:
@@ -474,7 +414,6 @@ def main():
                 padding_bottom_ratio=padding_bottom,
                 padding_side_ratio=padding_side,
                 border_color=border_color,
-                annotate=annotate,
                 zoom_out_factor=zoom_out_factor,
                 shift_x=shift_x,
                 shift_y=shift_y,
@@ -490,7 +429,6 @@ def main():
                 "shift_y": shift_y,
                 "zoom_out_factor": zoom_out_factor,
                 "border_color": border_color,
-                "annotate": annotate,
             })
     
     # Undo Button
@@ -515,7 +453,6 @@ def main():
             padding_bottom_ratio=padding_bottom,
             padding_side_ratio=padding_side,
             border_color=border_color,
-            annotate=False,
             zoom_out_factor=zoom_out_factor,
             shift_x=shift_x,
             shift_y=shift_y,
@@ -528,7 +465,7 @@ def main():
             data=buffer.getvalue(),
             file_name="headshot.jpg",
             mime="image/jpeg",
-            help="Download the processed headshot as a JPEG file (annotation-free)."
+            help="Download the processed headshot as a JPEG file."
         )
 
 if __name__ == "__main__":
