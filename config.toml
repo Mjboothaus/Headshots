@@ -9,6 +9,17 @@ shift_x = 0
 shift_y = 0
 zoom_out_factor = 1.1
 
+[linkedin]
+target_width = 400
+target_height = 400
+padding_top = 0.3
+padding_bottom = 0.3
+padding_side = 0.2
+border_color = "#F3F2EF"
+shift_x = 0
+shift_y = 0
+zoom_out_factor = 1.2
+
 [slider]
 target_width_min = 200
 target_width_max = 1000
@@ -20,5 +31,5 @@ padding_bottom_max = 1.0
 padding_side_max = 0.5
 shift_min = -100
 shift_max = 100
-zoom_out_min = 1.0
-zoom_out_max = 1.5
+zoom_out_min = 0.9
+zoom_out_max = 2.0
