@@ -1,0 +1,24 @@
+[default]
+target_width = 400
+target_height = 500
+padding_top = 0.2
+padding_bottom = 0.5
+padding_side = 0.1
+border_color = "#000000"
+shift_x = 0
+shift_y = 0
+zoom_out_factor = 1.1
+
+[slider]
+target_width_min = 200
+target_width_max = 1000
+target_height_min = 200
+target_height_max = 1000
+padding_min = 0.0
+padding_top_max = 0.5
+padding_bottom_max = 1.0
+padding_side_max = 0.5
+shift_min = -100
+shift_max = 100
+zoom_out_min = 1.0
+zoom_out_max = 1.5
