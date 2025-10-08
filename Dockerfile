@@ -34,16 +34,16 @@ RUN pip install --root-user-action=ignore uv
 # Copy dependency files first (for better layer caching)
 COPY pyproject.toml README.md ./
 
+# Copy source code (required for editable install)
+COPY src/ ./src/
+COPY config.toml headshot_app.py instructions.md ./
+
 # Create a virtual environment using UV for isolation
 RUN uv venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
-# Install dependencies in the virtual environment
+# Install dependencies in the virtual environment (editable install needs source)
 RUN uv pip install --python /opt/venv/bin/python -e .
-
-# Copy source code
-COPY src/ ./src/
-COPY config.toml headshot_app.py instructions.md ./
 
 # ==============================================================================
 # Runtime Stage: Create the final lightweight image
