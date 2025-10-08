@@ -183,33 +183,37 @@ def main():
     if "show_instructions" not in st.session_state:
         st.session_state.show_instructions = False
     
-    # File uploader and profile selector in main area
-    uploaded_file = st.file_uploader(
-        "Choose an image to get started",
-        type=["png", "jpg", "jpeg"],
-        help="Upload a PNG or JPG image to process into a headshot."
-    )
+    # File uploader and profile selector in main area with 3:1 column layout
+    col1, col2 = st.columns([3, 1])
     
-    # Profile selector in main area
-    st.markdown("### 📋 Choose Profile or Custom Settings")
+    with col1:
+        uploaded_file = st.file_uploader(
+            "Choose an image to get started",
+            type=["png", "jpg", "jpeg"],
+            help="Upload a PNG or JPG image to process into a headshot."
+        )
     
-    # Get preset options from config (exclude 'slider' section)
-    available_presets = [key.title() for key in CONFIG.keys() if key != 'slider' and key != 'download_formats']
-    preset_options = available_presets + ["Custom"]
-    
-    # Initialize last_preset if not exists
-    if "last_preset" not in st.session_state:
-        st.session_state.last_preset = available_presets[0]  # Default to first preset
-    
-    selected_preset = st.selectbox(
-        "Profile Configuration",
-        preset_options,
-        index=preset_options.index(st.session_state.last_preset) if st.session_state.last_preset in preset_options else 0,
-        help="Choose a preset profile or select 'Custom' to manually adjust all settings in the sidebar"
-    )
+    with col2:
+        st.markdown("**Profile:**")
+        
+        # Get preset options from config (exclude 'slider' and 'download_formats' sections)
+        available_presets = [key.title() for key in CONFIG.keys() if key != 'slider' and key != 'download_formats']
+        preset_options = available_presets + ["Custom"]
+        
+        # Initialize last_preset if not exists
+        if "last_preset" not in st.session_state:
+            st.session_state.last_preset = available_presets[0]  # Default to first preset
+        
+        selected_preset = st.selectbox(
+            "Profile",
+            preset_options,
+            index=preset_options.index(st.session_state.last_preset) if st.session_state.last_preset in preset_options else 0,
+            help="Choose a preset profile or select 'Custom' to manually adjust settings in the sidebar",
+            label_visibility="collapsed"
+        )
     
     # SIDEBAR CONTROLS
-    st.sidebar.title("Controls")
+    st.sidebar.title("Manual Adjustments")
     
     if uploaded_file is not None:
         try:
@@ -235,9 +239,6 @@ def main():
             st.error("Cannot identify image file. Please upload a valid PNG or JPG.")
             return
     
-    # Sidebar controls header
-    st.sidebar.subheader("🏛️ Manual Controls")
-    st.sidebar.markdown("*Adjust individual settings*")
     
     # Function to apply preset settings
     def apply_preset(preset_name):
