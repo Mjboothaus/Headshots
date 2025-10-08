@@ -89,6 +89,10 @@ class ImageData:
                     "Please upload an image smaller than 10000x10000 pixels."
                 )
             
+            # Memory optimization: Resize large images for cloud deployment
+            original_size = (width, height)
+            image = cls._optimize_image_for_memory(image)
+            
             logger.info(f"Successfully loaded image: {uploaded_file.name} ({width}x{height})")
             
             return cls(
@@ -196,3 +200,41 @@ class ImageData:
         self.processing_time = None
         
         logger.info("Image data cleared")
+    
+    @staticmethod
+    def _optimize_image_for_memory(image: Image.Image, max_dimension: int = 2048) -> Image.Image:
+        """
+        Optimize image for memory usage by resizing if too large.
+        
+        Args:
+            image: PIL Image to optimize
+            max_dimension: Maximum width or height (default: 2048px)
+            
+        Returns:
+            Optimized PIL Image
+        """
+        width, height = image.size
+        original_pixels = width * height
+        
+        # Only resize if image is larger than max_dimension in either direction
+        if width <= max_dimension and height <= max_dimension:
+            logger.info(f"Image size OK for memory: {width}x{height}")
+            return image
+        
+        # Calculate new dimensions maintaining aspect ratio
+        if width > height:
+            new_width = max_dimension
+            new_height = int((height * max_dimension) / width)
+        else:
+            new_height = max_dimension
+            new_width = int((width * max_dimension) / height)
+        
+        # Resize using high-quality resampling
+        resized_image = image.resize((new_width, new_height), Image.Resampling.LANCZOS)
+        
+        new_pixels = new_width * new_height
+        reduction_percent = ((original_pixels - new_pixels) / original_pixels) * 100
+        
+        logger.info(f"Image resized for memory optimization: {width}x{height} -> {new_width}x{new_height} ({reduction_percent:.1f}% reduction)")
+        
+        return resized_image

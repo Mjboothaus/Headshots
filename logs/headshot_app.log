@@ -1,0 +1,400 @@
+2025-10-08 12:01:04 | INFO     | headshot_generator.utils.logger:setup_logger:52 | Logging initialized with level: INFO
+2025-10-08 12:01:04 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-08 12:01:04 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 12:01:04 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 12:01:04 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 12:01:04 | INFO     | headshot_generator.ui.app:__init__:40 | HeadshotApp initialized successfully
+2025-10-08 12:01:04 | INFO     | headshot_generator.ui.app:run:79 | Starting application run
+2025-10-08 12:23:10 | INFO     | headshot_generator.utils.logger:setup_logger:52 | Logging initialized with level: INFO
+2025-10-08 12:23:10 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-5/test_load_valid_config0/config.toml
+2025-10-08 12:23:10 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 12:23:10 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-5/test_get_presets0/config.toml
+2025-10-08 12:23:10 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 12:23:10 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-5/test_get_preset_config0/config.toml
+2025-10-08 12:23:10 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 12:23:10 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-5/test_get_invalid_preset0/config.toml
+2025-10-08 12:23:10 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 12:23:10 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-5/test_get_download_formats0/config.toml
+2025-10-08 12:23:10 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 12:23:10 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-5/test_validation_missing_sectio0/invalid.toml
+2025-10-08 12:23:10 | ERROR    | headshot_generator.models.image_data:from_uploaded_file:107 | Failed to process uploaded image: sample_uploaded_file.<locals>.MockUploadedFile.read() takes 1 positional argument but 2 were given
+2025-10-08 12:23:10 | ERROR    | headshot_generator.models.image_data:from_uploaded_file:107 | Failed to process uploaded image: TestImageData.test_from_uploaded_file_too_small.<locals>.MockTinyFile.read() takes 1 positional argument but 2 were given
+2025-10-08 12:23:10 | INFO     | headshot_generator.models.image_data:set_processed_image:130 | Processed image set: (500, 500)
+2025-10-08 12:23:10 | INFO     | headshot_generator.models.image_data:clear:198 | Image data cleared
+2025-10-08 12:23:10 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 12:23:10 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 12:23:10 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 12:23:10 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 12:23:10 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 12:23:10 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 12:23:10 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 12:23:10 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 12:23:10 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 12:23:10 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 12:23:10 | INFO     | headshot_generator.models.session_state:apply_preset:113 | Applied preset configuration: {'target_width': 350, 'target_height': 450, 'padding_top': 0.25, 'border_color': '#CCCCCC'}
+2025-10-08 12:23:10 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 12:23:10 | ERROR    | headshot_generator.models.session_state:apply_preset:115 | Failed to apply preset: Invalid target dimensions: -100x500
+2025-10-08 12:23:10 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 12:23:10 | INFO     | headshot_generator.models.session_state:set_preset:129 | Selected preset: LinkedIn
+2025-10-08 12:23:10 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 12:23:10 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 12:23:10 | ERROR    | headshot_generator.models.session_state:set_error:144 | Session error set: Test error message
+2025-10-08 12:23:10 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 12:23:10 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 12:23:10 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 12:23:10 | INFO     | headshot_generator.models.session_state:set_preset:129 | Selected preset: LinkedIn
+2025-10-08 12:23:10 | ERROR    | headshot_generator.models.session_state:set_error:144 | Session error set: Some error
+2025-10-08 12:23:10 | INFO     | headshot_generator.models.session_state:reset_to_defaults:180 | Session state reset to defaults
+2025-10-08 12:23:10 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:09:01 | INFO     | headshot_generator.utils.logger:setup_logger:52 | Logging initialized with level: INFO
+2025-10-08 13:11:51 | INFO     | headshot_generator.utils.logger:setup_logger:52 | Logging initialized with level: INFO
+2025-10-08 13:15:30 | INFO     | headshot_generator.utils.logger:setup_logger:52 | Logging initialized with level: INFO
+2025-10-08 13:15:30 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-6/test_load_valid_config0/config.toml
+2025-10-08 13:15:30 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 13:15:30 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-6/test_get_presets0/config.toml
+2025-10-08 13:15:30 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 13:15:30 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-6/test_get_preset_config0/config.toml
+2025-10-08 13:15:30 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 13:15:30 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-6/test_get_invalid_preset0/config.toml
+2025-10-08 13:15:30 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 13:15:30 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-6/test_get_download_formats0/config.toml
+2025-10-08 13:15:30 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 13:15:30 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-6/test_validation_missing_sectio0/invalid.toml
+2025-10-08 13:15:30 | ERROR    | headshot_generator.models.image_data:from_uploaded_file:107 | Failed to process uploaded image: sample_uploaded_file.<locals>.MockUploadedFile.read() takes 1 positional argument but 2 were given
+2025-10-08 13:15:30 | ERROR    | headshot_generator.models.image_data:from_uploaded_file:107 | Failed to process uploaded image: TestImageData.test_from_uploaded_file_too_small.<locals>.MockTinyFile.read() takes 1 positional argument but 2 were given
+2025-10-08 13:15:30 | INFO     | headshot_generator.models.image_data:set_processed_image:130 | Processed image set: (500, 500)
+2025-10-08 13:15:30 | INFO     | headshot_generator.models.image_data:clear:198 | Image data cleared
+2025-10-08 13:15:31 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 13:15:31 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 13:15:31 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 13:15:31 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 13:15:31 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 13:15:31 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 13:15:31 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 13:15:31 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:15:31 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:15:31 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:15:31 | INFO     | headshot_generator.models.session_state:apply_preset:113 | Applied preset configuration: {'target_width': 350, 'target_height': 450, 'padding_top': 0.25, 'border_color': '#CCCCCC'}
+2025-10-08 13:15:31 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:15:31 | ERROR    | headshot_generator.models.session_state:apply_preset:115 | Failed to apply preset: Invalid target dimensions: -100x500
+2025-10-08 13:15:31 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:15:31 | INFO     | headshot_generator.models.session_state:set_preset:129 | Selected preset: LinkedIn
+2025-10-08 13:15:31 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:15:31 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:15:31 | ERROR    | headshot_generator.models.session_state:set_error:144 | Session error set: Test error message
+2025-10-08 13:15:31 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:15:31 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:15:31 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:15:31 | INFO     | headshot_generator.models.session_state:set_preset:129 | Selected preset: LinkedIn
+2025-10-08 13:15:31 | ERROR    | headshot_generator.models.session_state:set_error:144 | Session error set: Some error
+2025-10-08 13:15:31 | INFO     | headshot_generator.models.session_state:reset_to_defaults:180 | Session state reset to defaults
+2025-10-08 13:15:31 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:29:16 | INFO     | headshot_generator.utils.logger:setup_logger:52 | Logging initialized with level: INFO
+2025-10-08 13:29:16 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-7/test_load_valid_config0/config.toml
+2025-10-08 13:29:16 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 13:29:16 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-7/test_get_presets0/config.toml
+2025-10-08 13:29:16 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 13:29:16 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-7/test_get_preset_config0/config.toml
+2025-10-08 13:29:16 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 13:29:16 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-7/test_get_invalid_preset0/config.toml
+2025-10-08 13:29:16 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 13:29:16 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-7/test_get_download_formats0/config.toml
+2025-10-08 13:29:16 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 13:29:16 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-7/test_validation_missing_sectio0/invalid.toml
+2025-10-08 13:29:16 | INFO     | headshot_generator.models.image_data:from_uploaded_file:92 | Successfully loaded image: test_image.jpg (500x500)
+2025-10-08 13:29:16 | INFO     | headshot_generator.models.image_data:set_processed_image:130 | Processed image set: (500, 500)
+2025-10-08 13:29:16 | INFO     | headshot_generator.models.image_data:clear:198 | Image data cleared
+2025-10-08 13:29:16 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:29:16 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:29:16 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:29:16 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:29:16 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:29:16 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:29:16 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:29:16 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:29:16 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:29:16 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:29:16 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:29:16 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:29:16 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:29:16 | INFO     | headshot_generator.models.session_state:apply_preset:113 | Applied preset configuration: {'target_width': 350, 'target_height': 450, 'padding_top': 0.25, 'border_color': '#CCCCCC'}
+2025-10-08 13:29:16 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:29:16 | ERROR    | headshot_generator.models.session_state:apply_preset:115 | Failed to apply preset: Invalid target dimensions: -100x500
+2025-10-08 13:29:16 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:29:16 | INFO     | headshot_generator.models.session_state:set_preset:129 | Selected preset: LinkedIn
+2025-10-08 13:29:16 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:29:16 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:29:16 | ERROR    | headshot_generator.models.session_state:set_error:144 | Session error set: Test error message
+2025-10-08 13:29:16 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:29:16 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:29:16 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:29:16 | INFO     | headshot_generator.models.session_state:set_preset:129 | Selected preset: LinkedIn
+2025-10-08 13:29:16 | ERROR    | headshot_generator.models.session_state:set_error:144 | Session error set: Some error
+2025-10-08 13:29:16 | INFO     | headshot_generator.models.session_state:reset_to_defaults:180 | Session state reset to defaults
+2025-10-08 13:29:16 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:29:22 | INFO     | headshot_generator.utils.logger:setup_logger:52 | Logging initialized with level: INFO
+2025-10-08 13:29:22 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-8/test_load_valid_config0/config.toml
+2025-10-08 13:29:22 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 13:29:22 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-8/test_get_presets0/config.toml
+2025-10-08 13:29:22 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 13:29:22 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-8/test_get_preset_config0/config.toml
+2025-10-08 13:29:22 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 13:29:22 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-8/test_get_invalid_preset0/config.toml
+2025-10-08 13:29:22 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 13:29:22 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-8/test_get_download_formats0/config.toml
+2025-10-08 13:29:22 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 13:29:22 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-8/test_validation_missing_sectio0/invalid.toml
+2025-10-08 13:29:22 | INFO     | headshot_generator.models.image_data:from_uploaded_file:92 | Successfully loaded image: test_image.jpg (500x500)
+2025-10-08 13:29:22 | INFO     | headshot_generator.models.image_data:set_processed_image:130 | Processed image set: (500, 500)
+2025-10-08 13:29:22 | INFO     | headshot_generator.models.image_data:clear:198 | Image data cleared
+2025-10-08 13:29:22 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:29:22 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:29:22 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:29:22 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:29:22 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:29:22 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:29:22 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:29:22 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:29:22 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:29:22 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:29:22 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:29:22 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:29:22 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:29:22 | INFO     | headshot_generator.models.session_state:apply_preset:113 | Applied preset configuration: {'target_width': 350, 'target_height': 450, 'padding_top': 0.25, 'border_color': '#CCCCCC'}
+2025-10-08 13:29:22 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:29:22 | ERROR    | headshot_generator.models.session_state:apply_preset:115 | Failed to apply preset: Invalid target dimensions: -100x500
+2025-10-08 13:29:22 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:29:22 | INFO     | headshot_generator.models.session_state:set_preset:129 | Selected preset: LinkedIn
+2025-10-08 13:29:22 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:29:22 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:29:22 | ERROR    | headshot_generator.models.session_state:set_error:144 | Session error set: Test error message
+2025-10-08 13:29:22 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:29:22 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:29:22 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:29:22 | INFO     | headshot_generator.models.session_state:set_preset:129 | Selected preset: LinkedIn
+2025-10-08 13:29:22 | ERROR    | headshot_generator.models.session_state:set_error:144 | Session error set: Some error
+2025-10-08 13:29:22 | INFO     | headshot_generator.models.session_state:reset_to_defaults:180 | Session state reset to defaults
+2025-10-08 13:29:22 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:30:52 | INFO     | headshot_generator.utils.logger:setup_logger:52 | Logging initialized with level: INFO
+2025-10-08 13:30:52 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-9/test_load_valid_config0/config.toml
+2025-10-08 13:30:52 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 13:30:52 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-9/test_get_presets0/config.toml
+2025-10-08 13:30:52 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 13:30:52 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-9/test_get_preset_config0/config.toml
+2025-10-08 13:30:52 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 13:30:52 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-9/test_get_invalid_preset0/config.toml
+2025-10-08 13:30:52 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 13:30:52 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-9/test_get_download_formats0/config.toml
+2025-10-08 13:30:52 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 13:30:52 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from /private/var/folders/pf/662q3gzd6413np78gpd4p9hr0000gn/T/pytest-of-mjboothaus/pytest-9/test_validation_missing_sectio0/invalid.toml
+2025-10-08 13:30:52 | INFO     | headshot_generator.models.image_data:from_uploaded_file:92 | Successfully loaded image: test_image.jpg (500x500)
+2025-10-08 13:30:52 | INFO     | headshot_generator.models.image_data:set_processed_image:130 | Processed image set: (500, 500)
+2025-10-08 13:30:52 | INFO     | headshot_generator.models.image_data:clear:198 | Image data cleared
+2025-10-08 13:30:52 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:30:52 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:30:52 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:30:52 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:30:52 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:30:52 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:30:52 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:30:52 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:30:52 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:30:52 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /mock/path/haarcascade_frontalface_default.xml
+2025-10-08 13:30:52 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:30:52 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:30:52 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:30:52 | INFO     | headshot_generator.models.session_state:apply_preset:113 | Applied preset configuration: {'target_width': 350, 'target_height': 450, 'padding_top': 0.25, 'border_color': '#CCCCCC'}
+2025-10-08 13:30:52 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:30:52 | ERROR    | headshot_generator.models.session_state:apply_preset:115 | Failed to apply preset: Invalid target dimensions: -100x500
+2025-10-08 13:30:52 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:30:52 | INFO     | headshot_generator.models.session_state:set_preset:129 | Selected preset: LinkedIn
+2025-10-08 13:30:52 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:30:52 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:30:52 | ERROR    | headshot_generator.models.session_state:set_error:144 | Session error set: Test error message
+2025-10-08 13:30:52 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:30:52 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:30:52 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:30:52 | INFO     | headshot_generator.models.session_state:set_preset:129 | Selected preset: LinkedIn
+2025-10-08 13:30:52 | ERROR    | headshot_generator.models.session_state:set_error:144 | Session error set: Some error
+2025-10-08 13:30:52 | INFO     | headshot_generator.models.session_state:reset_to_defaults:180 | Session state reset to defaults
+2025-10-08 13:30:52 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:43:57 | INFO     | headshot_generator.utils.logger:setup_logger:52 | Logging initialized with level: INFO
+2025-10-08 13:44:04 | INFO     | headshot_generator.utils.logger:setup_logger:52 | Logging initialized with level: INFO
+2025-10-08 13:44:14 | INFO     | headshot_generator.utils.logger:setup_logger:52 | Logging initialized with level: INFO
+2025-10-08 13:44:14 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-08 13:44:14 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 13:44:14 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 13:44:14 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 13:44:14 | INFO     | headshot_generator.ui.app:__init__:40 | HeadshotApp initialized successfully
+2025-10-08 13:44:14 | INFO     | headshot_generator.ui.app:run:79 | Starting application run
+2025-10-08 13:44:28 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-08 13:44:28 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 13:44:28 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 13:44:28 | INFO     | headshot_generator.ui.app:__init__:40 | HeadshotApp initialized successfully
+2025-10-08 13:44:28 | INFO     | headshot_generator.ui.app:run:79 | Starting application run
+2025-10-08 13:44:28 | INFO     | headshot_generator.models.image_data:from_uploaded_file:92 | Successfully loaded image: lightshirt-wall-left.png (3024x4032)
+2025-10-08 13:44:28 | INFO     | headshot_generator.processing.headshot_processor:process_image:78 | Starting headshot processing
+2025-10-08 13:44:29 | INFO     | headshot_generator.processing.headshot_processor:process_image:115 | Detected 3 face(s), using face-based crop
+2025-10-08 13:44:29 | INFO     | headshot_generator.models.image_data:set_processed_image:130 | Processed image set: (400, 500)
+2025-10-08 13:44:29 | INFO     | headshot_generator.processing.headshot_processor:process_image:128 | Successfully processed headshot: (400, 500)
+2025-10-08 13:44:29 | INFO     | headshot_generator.ui.app:_process_current_image:234 | Image processed successfully
+2025-10-08 13:44:29 | INFO     | headshot_generator.ui.app:_handle_file_upload:141 | File uploaded successfully: lightshirt-wall-left.png
+2025-10-08 13:44:43 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-08 13:44:43 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 13:44:43 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 13:44:43 | INFO     | headshot_generator.ui.app:__init__:40 | HeadshotApp initialized successfully
+2025-10-08 13:44:43 | INFO     | headshot_generator.ui.app:run:79 | Starting application run
+2025-10-08 13:44:43 | INFO     | headshot_generator.models.image_data:from_uploaded_file:92 | Successfully loaded image: lightshirt-wall-left.png (3024x4032)
+2025-10-08 13:44:43 | INFO     | headshot_generator.processing.headshot_processor:process_image:78 | Starting headshot processing
+2025-10-08 13:44:44 | INFO     | headshot_generator.processing.headshot_processor:process_image:115 | Detected 3 face(s), using face-based crop
+2025-10-08 13:44:44 | INFO     | headshot_generator.models.image_data:set_processed_image:130 | Processed image set: (400, 500)
+2025-10-08 13:44:44 | INFO     | headshot_generator.processing.headshot_processor:process_image:128 | Successfully processed headshot: (400, 500)
+2025-10-08 13:44:44 | INFO     | headshot_generator.ui.app:_process_current_image:234 | Image processed successfully
+2025-10-08 13:44:44 | INFO     | headshot_generator.ui.app:_handle_file_upload:141 | File uploaded successfully: lightshirt-wall-left.png
+2025-10-08 13:44:44 | INFO     | headshot_generator.models.session_state:set_preset:129 | Selected preset: Custom
+2025-10-08 13:44:44 | INFO     | headshot_generator.processing.headshot_processor:process_image:78 | Starting headshot processing
+2025-10-08 13:44:44 | INFO     | headshot_generator.processing.headshot_processor:process_image:115 | Detected 3 face(s), using face-based crop
+2025-10-08 13:44:44 | INFO     | headshot_generator.models.image_data:set_processed_image:130 | Processed image set: (400, 500)
+2025-10-08 13:44:44 | INFO     | headshot_generator.processing.headshot_processor:process_image:128 | Successfully processed headshot: (400, 500)
+2025-10-08 13:44:44 | INFO     | headshot_generator.ui.app:_process_current_image:234 | Image processed successfully
+2025-10-08 13:45:03 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-08 13:45:03 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 13:45:03 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 13:45:03 | INFO     | headshot_generator.ui.app:__init__:40 | HeadshotApp initialized successfully
+2025-10-08 13:45:03 | INFO     | headshot_generator.ui.app:run:79 | Starting application run
+2025-10-08 13:45:03 | INFO     | headshot_generator.models.image_data:from_uploaded_file:92 | Successfully loaded image: lightshirt-wall-left.png (3024x4032)
+2025-10-08 13:45:03 | INFO     | headshot_generator.processing.headshot_processor:process_image:78 | Starting headshot processing
+2025-10-08 13:45:03 | INFO     | headshot_generator.processing.headshot_processor:process_image:115 | Detected 3 face(s), using face-based crop
+2025-10-08 13:45:03 | INFO     | headshot_generator.models.image_data:set_processed_image:130 | Processed image set: (400, 500)
+2025-10-08 13:45:03 | INFO     | headshot_generator.processing.headshot_processor:process_image:128 | Successfully processed headshot: (400, 500)
+2025-10-08 13:45:03 | INFO     | headshot_generator.ui.app:_process_current_image:234 | Image processed successfully
+2025-10-08 13:45:03 | INFO     | headshot_generator.ui.app:_handle_file_upload:141 | File uploaded successfully: lightshirt-wall-left.png
+2025-10-08 13:45:13 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-08 13:45:13 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 13:45:14 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 13:45:14 | INFO     | headshot_generator.ui.app:__init__:40 | HeadshotApp initialized successfully
+2025-10-08 13:45:14 | INFO     | headshot_generator.ui.app:run:79 | Starting application run
+2025-10-08 13:45:14 | INFO     | headshot_generator.models.image_data:from_uploaded_file:92 | Successfully loaded image: lightshirt-wall-left.png (3024x4032)
+2025-10-08 13:45:14 | INFO     | headshot_generator.processing.headshot_processor:process_image:78 | Starting headshot processing
+2025-10-08 13:45:14 | INFO     | headshot_generator.processing.headshot_processor:process_image:115 | Detected 3 face(s), using face-based crop
+2025-10-08 13:45:14 | INFO     | headshot_generator.models.image_data:set_processed_image:130 | Processed image set: (400, 500)
+2025-10-08 13:45:14 | INFO     | headshot_generator.processing.headshot_processor:process_image:128 | Successfully processed headshot: (400, 500)
+2025-10-08 13:45:14 | INFO     | headshot_generator.ui.app:_process_current_image:234 | Image processed successfully
+2025-10-08 13:45:14 | INFO     | headshot_generator.ui.app:_handle_file_upload:141 | File uploaded successfully: lightshirt-wall-left.png
+2025-10-08 13:45:14 | INFO     | headshot_generator.processing.headshot_processor:process_image:78 | Starting headshot processing
+2025-10-08 13:45:15 | INFO     | headshot_generator.processing.headshot_processor:process_image:115 | Detected 3 face(s), using face-based crop
+2025-10-08 13:45:15 | INFO     | headshot_generator.models.image_data:set_processed_image:130 | Processed image set: (400, 500)
+2025-10-08 13:45:15 | INFO     | headshot_generator.processing.headshot_processor:process_image:128 | Successfully processed headshot: (400, 500)
+2025-10-08 13:45:15 | INFO     | headshot_generator.ui.app:_process_current_image:234 | Image processed successfully
+2025-10-08 13:45:45 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-08 13:45:45 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 13:45:45 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 13:45:45 | INFO     | headshot_generator.ui.app:__init__:40 | HeadshotApp initialized successfully
+2025-10-08 13:45:45 | INFO     | headshot_generator.ui.app:run:79 | Starting application run
+2025-10-08 13:45:45 | INFO     | headshot_generator.models.image_data:from_uploaded_file:92 | Successfully loaded image: lightshirt-wall-left.png (3024x4032)
+2025-10-08 13:45:45 | INFO     | headshot_generator.processing.headshot_processor:process_image:78 | Starting headshot processing
+2025-10-08 13:45:46 | INFO     | headshot_generator.processing.headshot_processor:process_image:115 | Detected 3 face(s), using face-based crop
+2025-10-08 13:45:46 | INFO     | headshot_generator.models.image_data:set_processed_image:130 | Processed image set: (400, 500)
+2025-10-08 13:45:46 | INFO     | headshot_generator.processing.headshot_processor:process_image:128 | Successfully processed headshot: (400, 500)
+2025-10-08 13:45:46 | INFO     | headshot_generator.ui.app:_process_current_image:234 | Image processed successfully
+2025-10-08 13:45:46 | INFO     | headshot_generator.ui.app:_handle_file_upload:141 | File uploaded successfully: lightshirt-wall-left.png
+2025-10-08 16:53:08 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-08 16:53:08 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 16:53:09 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 16:53:09 | INFO     | headshot_generator.ui.app:__init__:40 | HeadshotApp initialized successfully
+2025-10-08 16:53:09 | INFO     | headshot_generator.ui.app:run:79 | Starting application run
+2025-10-08 16:53:23 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-08 16:53:23 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 16:53:23 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 16:53:23 | INFO     | headshot_generator.ui.app:__init__:40 | HeadshotApp initialized successfully
+2025-10-08 16:53:23 | INFO     | headshot_generator.ui.app:run:79 | Starting application run
+2025-10-08 16:53:23 | INFO     | headshot_generator.models.image_data:from_uploaded_file:92 | Successfully loaded image: tshirt-door-forward.png (3024x4032)
+2025-10-08 16:53:23 | INFO     | headshot_generator.processing.headshot_processor:process_image:78 | Starting headshot processing
+2025-10-08 16:53:24 | INFO     | headshot_generator.processing.headshot_processor:process_image:115 | Detected 1 face(s), using face-based crop
+2025-10-08 16:53:24 | INFO     | headshot_generator.models.image_data:set_processed_image:130 | Processed image set: (400, 500)
+2025-10-08 16:53:24 | INFO     | headshot_generator.processing.headshot_processor:process_image:128 | Successfully processed headshot: (400, 500)
+2025-10-08 16:53:24 | INFO     | headshot_generator.ui.app:_process_current_image:234 | Image processed successfully
+2025-10-08 16:53:24 | INFO     | headshot_generator.ui.app:_handle_file_upload:141 | File uploaded successfully: tshirt-door-forward.png
+2025-10-08 16:53:38 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-08 16:53:38 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 16:53:38 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 16:53:38 | INFO     | headshot_generator.ui.app:__init__:40 | HeadshotApp initialized successfully
+2025-10-08 16:53:38 | INFO     | headshot_generator.ui.app:run:79 | Starting application run
+2025-10-08 16:53:38 | INFO     | headshot_generator.models.image_data:from_uploaded_file:92 | Successfully loaded image: tshirt-door-forward.png (3024x4032)
+2025-10-08 16:53:38 | INFO     | headshot_generator.processing.headshot_processor:process_image:78 | Starting headshot processing
+2025-10-08 16:53:38 | INFO     | headshot_generator.processing.headshot_processor:process_image:115 | Detected 1 face(s), using face-based crop
+2025-10-08 16:53:39 | INFO     | headshot_generator.models.image_data:set_processed_image:130 | Processed image set: (400, 500)
+2025-10-08 16:53:39 | INFO     | headshot_generator.processing.headshot_processor:process_image:128 | Successfully processed headshot: (400, 500)
+2025-10-08 16:53:39 | INFO     | headshot_generator.ui.app:_process_current_image:234 | Image processed successfully
+2025-10-08 16:53:39 | INFO     | headshot_generator.ui.app:_handle_file_upload:141 | File uploaded successfully: tshirt-door-forward.png
+2025-10-08 16:53:39 | INFO     | headshot_generator.models.session_state:set_preset:129 | Selected preset: Linkedin
+2025-10-08 16:53:39 | INFO     | headshot_generator.models.session_state:apply_preset:113 | Applied preset configuration: {'target_width': 400, 'target_height': 400, 'padding_top': 0.3, 'padding_bottom': 0.3, 'padding_side': 0.2, 'border_color': '#F3F2EF', 'shift_x': 0, 'shift_y': 0, 'zoom_out_factor': 1.2}
+2025-10-08 16:53:39 | INFO     | headshot_generator.processing.headshot_processor:process_image:78 | Starting headshot processing
+2025-10-08 16:53:39 | INFO     | headshot_generator.processing.headshot_processor:process_image:115 | Detected 1 face(s), using face-based crop
+2025-10-08 16:53:39 | INFO     | headshot_generator.models.image_data:set_processed_image:130 | Processed image set: (400, 400)
+2025-10-08 16:53:39 | INFO     | headshot_generator.processing.headshot_processor:process_image:128 | Successfully processed headshot: (400, 400)
+2025-10-08 16:53:39 | INFO     | headshot_generator.ui.app:_process_current_image:234 | Image processed successfully
+2025-10-08 16:53:39 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-08 16:53:39 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 16:53:39 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 16:53:39 | INFO     | headshot_generator.ui.app:__init__:40 | HeadshotApp initialized successfully
+2025-10-08 16:53:39 | INFO     | headshot_generator.ui.app:run:79 | Starting application run
+2025-10-08 16:53:39 | INFO     | headshot_generator.models.image_data:from_uploaded_file:92 | Successfully loaded image: tshirt-door-forward.png (3024x4032)
+2025-10-08 16:53:39 | INFO     | headshot_generator.processing.headshot_processor:process_image:78 | Starting headshot processing
+2025-10-08 16:53:39 | INFO     | headshot_generator.processing.headshot_processor:process_image:115 | Detected 1 face(s), using face-based crop
+2025-10-08 16:53:39 | INFO     | headshot_generator.models.image_data:set_processed_image:130 | Processed image set: (400, 400)
+2025-10-08 16:53:39 | INFO     | headshot_generator.processing.headshot_processor:process_image:128 | Successfully processed headshot: (400, 400)
+2025-10-08 16:53:39 | INFO     | headshot_generator.ui.app:_process_current_image:234 | Image processed successfully
+2025-10-08 16:53:39 | INFO     | headshot_generator.ui.app:_handle_file_upload:141 | File uploaded successfully: tshirt-door-forward.png
+2025-10-08 16:58:56 | INFO     | headshot_generator.utils.logger:setup_logger:52 | Logging initialized with level: INFO
+2025-10-08 16:59:04 | INFO     | headshot_generator.utils.logger:setup_logger:52 | Logging initialized with level: INFO
+2025-10-08 16:59:04 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-08 16:59:04 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 16:59:04 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 16:59:04 | INFO     | headshot_generator.models.session_state:__post_init__:87 | Session state initialized
+2025-10-08 16:59:04 | INFO     | headshot_generator.ui.app:__init__:40 | HeadshotApp initialized successfully
+2025-10-08 16:59:04 | INFO     | headshot_generator.ui.app:run:79 | Starting application run
+2025-10-08 16:59:28 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-08 16:59:28 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 16:59:28 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 16:59:28 | INFO     | headshot_generator.ui.app:__init__:40 | HeadshotApp initialized successfully
+2025-10-08 16:59:28 | INFO     | headshot_generator.ui.app:run:79 | Starting application run
+2025-10-08 16:59:30 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-08 16:59:30 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 16:59:30 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 16:59:30 | INFO     | headshot_generator.ui.app:__init__:40 | HeadshotApp initialized successfully
+2025-10-08 16:59:30 | INFO     | headshot_generator.ui.app:run:79 | Starting application run
+2025-10-08 16:59:30 | INFO     | headshot_generator.models.session_state:set_preset:129 | Selected preset: Linkedin
+2025-10-08 16:59:30 | INFO     | headshot_generator.models.session_state:apply_preset:113 | Applied preset configuration: {'target_width': 400, 'target_height': 400, 'padding_top': 0.3, 'padding_bottom': 0.3, 'padding_side': 0.2, 'border_color': '#F3F2EF', 'shift_x': 0, 'shift_y': 0, 'zoom_out_factor': 1.2}
+2025-10-08 16:59:30 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-08 16:59:30 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 16:59:30 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 16:59:30 | INFO     | headshot_generator.ui.app:__init__:40 | HeadshotApp initialized successfully
+2025-10-08 16:59:30 | INFO     | headshot_generator.ui.app:run:79 | Starting application run
+2025-10-08 16:59:32 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-08 16:59:32 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 16:59:32 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 16:59:32 | INFO     | headshot_generator.ui.app:__init__:40 | HeadshotApp initialized successfully
+2025-10-08 16:59:32 | INFO     | headshot_generator.ui.app:run:79 | Starting application run
+2025-10-08 16:59:32 | INFO     | headshot_generator.models.session_state:set_preset:129 | Selected preset: Custom
+2025-10-08 16:59:32 | INFO     | headshot_generator.ui.app:_handle_preset_change:196 | Preset changed to: Custom
+2025-10-08 16:59:41 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-08 16:59:41 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 16:59:41 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 16:59:41 | INFO     | headshot_generator.ui.app:__init__:40 | HeadshotApp initialized successfully
+2025-10-08 16:59:41 | INFO     | headshot_generator.ui.app:run:79 | Starting application run
+2025-10-08 16:59:41 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-08 16:59:41 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 16:59:41 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-08 16:59:41 | INFO     | headshot_generator.ui.app:__init__:40 | HeadshotApp initialized successfully
+2025-10-08 16:59:41 | INFO     | headshot_generator.ui.app:run:79 | Starting application run
+2025-10-08 17:10:24 | INFO     | headshot_generator.utils.logger:setup_logger:52 | Logging initialized with level: INFO
+2025-10-08 17:18:59 | INFO     | headshot_generator.utils.logger:setup_logger:52 | Logging initialized with level: INFO
+2025-10-08 17:18:59 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-08 17:18:59 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-08 17:18:59 | INFO     | headshot_generator.models.session_state:__post_init__:88 | Session state initialized
+2025-10-08 17:18:59 | INFO     | headshot_generator.models.session_state:set_preset:145 | Selected preset: Custom
+2025-10-08 17:18:59 | INFO     | headshot_generator.models.session_state:set_preset:142 | Saved current parameters as custom preset
+2025-10-08 17:18:59 | INFO     | headshot_generator.models.session_state:set_preset:145 | Selected preset: LinkedIn
+2025-10-08 17:18:59 | INFO     | headshot_generator.models.session_state:set_preset:145 | Selected preset: Custom
+2025-10-08 17:18:59 | INFO     | headshot_generator.models.session_state:apply_custom_preset:163 | Applied saved custom parameters

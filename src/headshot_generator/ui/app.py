@@ -120,6 +120,15 @@ class HeadshotApp:
             
             # Handle file upload
             if uploaded_file is not None:
+                # Show file size info for large files
+                if hasattr(uploaded_file, 'size') and uploaded_file.size:
+                    file_size_mb = uploaded_file.size / (1024 * 1024)
+                    if file_size_mb > 5:  # Warn for files > 5MB
+                        st.warning(
+                            f"⚠️ Large file detected: {file_size_mb:.1f}MB. "
+                            f"Image will be automatically optimised for better performance."
+                        )
+                
                 self._handle_file_upload(uploaded_file)
         
         with col2:
@@ -277,16 +286,20 @@ class HeadshotApp:
             st.error("An error occurred while processing the image.")
     
     def _render_image_display(self) -> None:
-        """Render the image display section."""
+        """Render the image display section with memory optimization."""
         col1, col2 = st.columns(2)
         
         with col1:
             st.subheader("Original Image")
             if st.session_state.image_data.original_image is not None:
+                # Use optimized display size for better performance
+                display_image = self._optimize_image_for_display(
+                    st.session_state.image_data.original_image
+                )
                 st.image(
-                    st.session_state.image_data.original_image,
+                    display_image,
                     caption="Before (Original)",
-                    width="stretch"
+                    use_column_width=True  # More efficient than width="stretch"
                 )
             else:
                 st.info("📷 Upload an image using the sidebar to get started")
@@ -294,10 +307,14 @@ class HeadshotApp:
         with col2:
             st.subheader("Processed Headshot")
             if st.session_state.image_data.processed_image is not None:
+                # Use optimized display size for better performance
+                display_image = self._optimize_image_for_display(
+                    st.session_state.image_data.processed_image
+                )
                 st.image(
-                    st.session_state.image_data.processed_image,
+                    display_image,
                     caption="After (Processed)",
-                    width="stretch"
+                    use_column_width=True  # More efficient than width="stretch"
                 )
             else:
                 st.info("✨ Your processed headshot will appear here")
@@ -423,3 +440,35 @@ class HeadshotApp:
             except Exception as e:
                 logger.error(f"Instructions loading error: {e}")
                 st.error("Error loading instructions.")
+    
+    def _optimize_image_for_display(self, image: Image.Image, max_display_size: int = 800) -> Image.Image:
+        """
+        Optimize image for display in Streamlit to reduce memory usage.
+        
+        Args:
+            image: PIL Image to optimize for display
+            max_display_size: Maximum dimension for display (default: 800px)
+            
+        Returns:
+            Display-optimized PIL Image
+        """
+        width, height = image.size
+        
+        # Only resize if image is larger than display size
+        if width <= max_display_size and height <= max_display_size:
+            return image
+        
+        # Calculate new dimensions maintaining aspect ratio
+        if width > height:
+            new_width = max_display_size
+            new_height = int((height * max_display_size) / width)
+        else:
+            new_height = max_display_size
+            new_width = int((width * max_display_size) / height)
+        
+        # Create display copy (don't modify original)
+        display_image = image.resize((new_width, new_height), Image.Resampling.LANCZOS)
+        
+        logger.debug(f"Display image optimized: {width}x{height} -> {new_width}x{new_height}")
+        
+        return display_image
