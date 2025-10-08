@@ -99,3 +99,163 @@ docker-clean:
     docker rm headshot-generator-local 2>/dev/null || true
     docker rmi headshot-generator 2>/dev/null || true
     echo "✓ Docker cleanup complete"
+
+# =============================================================================
+# RENDER CLI DEPLOYMENT
+# =============================================================================
+
+# Install Render CLI on macOS
+render-install:
+    #!/bin/bash
+    if command -v render >/dev/null 2>&1; then
+        echo "✓ Render CLI is already installed"
+        echo "Version: $(render --version 2>/dev/null || echo 'unknown')"
+    else
+        echo "Installing Render CLI via Homebrew..."
+        if ! command -v brew >/dev/null 2>&1; then
+            echo "ERROR: Homebrew is not installed"
+            echo "Please install Homebrew first: https://brew.sh"
+            exit 1
+        fi
+        brew update
+        brew install render
+        echo "✓ Render CLI installed successfully"
+        echo "Version: $(render --version 2>/dev/null || echo 'installed')"
+    fi
+
+# Login to Render CLI
+render-login: render-install
+    #!/bin/bash
+    echo "Authenticating with Render CLI..."
+    echo "This will open your browser to generate a CLI token"
+    render login
+    echo "✓ Render CLI authentication complete"
+    echo "You can now use render commands to manage your services"
+
+# List Render services
+render-services:
+    #!/bin/bash
+    if ! command -v render >/dev/null 2>&1; then
+        echo "ERROR: Render CLI not installed. Run 'just render-install' first"
+        exit 1
+    fi
+    echo "Listing Render services..."
+    render services
+
+# Create/Deploy service using render.yaml
+render-deploy:
+    #!/bin/bash
+    if ! command -v render >/dev/null 2>&1; then
+        echo "ERROR: Render CLI not installed. Run 'just render-install' first"
+        exit 1
+    fi
+    
+    if [ ! -f "render.yaml" ]; then
+        echo "ERROR: render.yaml not found in current directory"
+        exit 1
+    fi
+    
+    echo "Deploying to Render using render.yaml..."
+    echo "Note: This creates a new service if it doesn't exist"
+    echo "or updates an existing service"
+    
+    # Check if git repo is clean and pushed
+    if ! git diff --quiet HEAD; then
+        echo "WARNING: You have uncommitted changes"
+        echo "Render deploys from git, so commit and push your changes first"
+        read -p "Continue anyway? (y/N): " -n 1 -r
+        echo
+        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+            echo "Deployment cancelled"
+            exit 1
+        fi
+    fi
+    
+    # Deploy using Blueprint (render.yaml)
+    echo "Creating/updating service from render.yaml..."
+    render blueprint create
+    
+    echo "✓ Deployment initiated"
+    echo "Check status with: just render-status"
+    echo "View logs with: just render-logs"
+
+# Trigger manual deployment of existing service
+render-redeploy:
+    #!/bin/bash
+    if ! command -v render >/dev/null 2>&1; then
+        echo "ERROR: Render CLI not installed. Run 'just render-install' first"
+        exit 1
+    fi
+    
+    echo "Triggering manual redeploy..."
+    echo "This will redeploy the latest commit"
+    
+    # Use interactive mode to select service
+    render deploys create --wait
+    
+    echo "✓ Deployment complete"
+
+# View deployment logs
+render-logs:
+    #!/bin/bash
+    if ! command -v render >/dev/null 2>&1; then
+        echo "ERROR: Render CLI not installed. Run 'just render-install' first"
+        exit 1
+    fi
+    
+    echo "Viewing service logs..."
+    # Interactive service selection
+    render logs
+
+# Check service status
+render-status:
+    #!/bin/bash
+    if ! command -v render >/dev/null 2>&1; then
+        echo "ERROR: Render CLI not installed. Run 'just render-install' first"
+        exit 1
+    fi
+    
+    echo "Checking service status..."
+    render services --output json | jq -r '.[] | "\(.name): \(.status) - \(.url)"' 2>/dev/null || render services
+
+# Open service in browser
+render-open:
+    #!/bin/bash
+    if ! command -v render >/dev/null 2>&1; then
+        echo "ERROR: Render CLI not installed. Run 'just render-install' first"
+        exit 1
+    fi
+    
+    echo "Getting service URL..."
+    # Get the first web service URL and open it
+    URL=$(render services --output json 2>/dev/null | jq -r '.[] | select(.type=="web") | .url' | head -n1)
+    
+    if [ -n "$URL" ] && [ "$URL" != "null" ]; then
+        echo "Opening: $URL"
+        open "$URL"
+    else
+        echo "No web service URL found. Use 'just render-services' to list services"
+    fi
+
+# Full deployment workflow (commit, push, deploy)
+render-deploy-full:
+    #!/bin/bash
+    echo "Full deployment workflow..."
+    
+    # Check for uncommitted changes
+    if ! git diff --quiet; then
+        echo "You have uncommitted changes. Please commit first:"
+        git status --short
+        exit 1
+    fi
+    
+    # Check if we're ahead of origin
+    if [ "$(git rev-list --count HEAD ^origin/main)" -gt 0 ] 2>/dev/null; then
+        echo "You have unpushed commits. Pushing to origin..."
+        git push origin main
+    fi
+    
+    # Deploy
+    just render-deploy
+    
+    echo "✓ Full deployment workflow complete"

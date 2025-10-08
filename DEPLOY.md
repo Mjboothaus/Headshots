@@ -10,7 +10,44 @@ This guide explains how to deploy the Headshot Generator to Render.com using Doc
 
 ## Deployment Methods
 
-### Method 1: Automatic Deployment (Recommended)
+### Method 1: Render CLI (Recommended)
+
+The fastest way to deploy using the command line.
+
+1. **Install and Setup Render CLI**:
+   ```bash
+   # Install Render CLI
+   just render-install
+   
+   # Login to Render (opens browser for authentication)
+   just render-login
+   ```
+
+2. **Deploy your application**:
+   ```bash
+   # Option A: Quick deploy (if everything is committed and pushed)
+   just render-deploy
+   
+   # Option B: Full workflow (commits, pushes, and deploys)
+   just render-deploy-full
+   ```
+
+3. **Manage your deployment**:
+   ```bash
+   # Check status
+   just render-status
+   
+   # View logs
+   just render-logs
+   
+   # Open app in browser
+   just render-open
+   
+   # Redeploy existing service
+   just render-redeploy
+   ```
+
+### Method 2: Automatic Deployment (GitHub Integration)
 
 1. **Push to GitHub**:
    ```bash
@@ -30,7 +67,7 @@ This guide explains how to deploy the Headshot Generator to Render.com using Doc
    - Render will automatically build and deploy using the Dockerfile
    - The application will be available at `https://your-app-name.onrender.com`
 
-### Method 2: Manual Service Creation
+### Method 3: Manual Service Creation
 
 1. **Create New Web Service**:
    - Go to Render Dashboard
