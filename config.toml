@@ -33,3 +33,23 @@ shift_min = -100
 shift_max = 100
 zoom_out_min = 0.9
 zoom_out_max = 2.0
+
+[download_formats.jpeg]
+format = "JPEG"
+extension = ".jpg"
+mime = "image/jpeg"
+quality = 95
+optimize = true
+
+[download_formats.png]
+format = "PNG"
+extension = ".png"
+mime = "image/png"
+optimize = true
+
+[download_formats.webp]
+format = "WEBP"
+extension = ".webp"
+mime = "image/webp"
+quality = 95
+optimize = true
