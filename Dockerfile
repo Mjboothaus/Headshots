@@ -72,7 +72,7 @@ RUN groupadd --gid 1000 appuser && \
 # Install only runtime dependencies (no build tools)
 RUN apt-get update && apt-get install -y \
     curl \
-    libgl1-mesa-glx \
+    libgl1-mesa-dri \
     libglib2.0-0 \
     libsm6 \
     libxext6 \
@@ -80,6 +80,7 @@ RUN apt-get update && apt-get install -y \
     libgomp1 \
     libgthread-2.0-0 \
     libgtk-3-0 \
+    libgbm1 \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy the virtual environment from the builder stage
