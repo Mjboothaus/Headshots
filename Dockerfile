@@ -13,18 +13,12 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 # Set working directory
 WORKDIR /app
 
-# Install build dependencies (including build tools for compiling packages)
+# Install build dependencies (minimal for headless OpenCV)
 RUN apt-get update && apt-get install -y \
     build-essential \
     curl \
-    libgl1-mesa-dev \
     libglib2.0-0 \
-    libsm6 \
-    libxext6 \
-    libxrender1 \
     libgomp1 \
-    libgthread-2.0-0 \
-    libgtk-3-0 \
     pkg-config \
     && rm -rf /var/lib/apt/lists/*
 
@@ -69,18 +63,11 @@ WORKDIR /app
 RUN groupadd --gid 1000 appuser && \
     useradd --uid 1000 --gid appuser --shell /bin/bash --create-home appuser
 
-# Install only runtime dependencies (no build tools)
+# Install only runtime dependencies (headless OpenCV needs minimal libraries)
 RUN apt-get update && apt-get install -y \
     curl \
-    libgl1-mesa-dri \
     libglib2.0-0 \
-    libsm6 \
-    libxext6 \
-    libxrender1 \
     libgomp1 \
-    libgthread-2.0-0 \
-    libgtk-3-0 \
-    libgbm1 \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy the virtual environment from the builder stage
