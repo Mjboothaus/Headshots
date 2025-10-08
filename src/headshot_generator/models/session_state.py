@@ -22,6 +22,7 @@ class ProcessingParameters:
     shift_x: int = 0
     shift_y: int = 0
     zoom_out_factor: float = 1.1
+    grayscale: bool = False
     
     def to_dict(self) -> Dict[str, Any]:
         """Convert to dictionary for processing."""
@@ -34,7 +35,8 @@ class ProcessingParameters:
             "border_color": self.border_color,
             "shift_x": self.shift_x,
             "shift_y": self.shift_y,
-            "zoom_out_factor": self.zoom_out_factor
+            "zoom_out_factor": self.zoom_out_factor,
+            "grayscale": self.grayscale
         }
     
     @classmethod
@@ -49,7 +51,8 @@ class ProcessingParameters:
             border_color=config.get("border_color", "#000000"),
             shift_x=config.get("shift_x", 0),
             shift_y=config.get("shift_y", 0),
-            zoom_out_factor=config.get("zoom_out_factor", 1.1)
+            zoom_out_factor=config.get("zoom_out_factor", 1.1),
+            grayscale=config.get("grayscale", False)
         )
     
     def validate(self) -> None:
@@ -79,6 +82,7 @@ class SessionState:
     
     processing_params: ProcessingParameters = field(default_factory=ProcessingParameters)
     selected_preset: str = "Default"
+    custom_params: Optional[ProcessingParameters] = None  # Store custom parameters separately
     show_instructions: bool = False
     last_error: Optional[str] = None
     
@@ -125,8 +129,45 @@ class SessionState:
         Args:
             preset_name: Name of the selected preset
         """
+        # If switching FROM Custom, save current params as custom params
+        if self.selected_preset == "Custom" and preset_name != "Custom":
+            self.custom_params = ProcessingParameters(
+                target_width=self.processing_params.target_width,
+                target_height=self.processing_params.target_height,
+                padding_top=self.processing_params.padding_top,
+                padding_bottom=self.processing_params.padding_bottom,
+                padding_side=self.processing_params.padding_side,
+                border_color=self.processing_params.border_color,
+                shift_x=self.processing_params.shift_x,
+                shift_y=self.processing_params.shift_y,
+                zoom_out_factor=self.processing_params.zoom_out_factor,
+                grayscale=self.processing_params.grayscale
+            )
+            logger.info("Saved current parameters as custom preset")
+        
         self.selected_preset = preset_name
         logger.info(f"Selected preset: {preset_name}")
+    
+    def apply_custom_preset(self) -> None:
+        """
+        Apply saved custom parameters if available, otherwise use config custom preset.
+        """
+        if self.custom_params is not None:
+            self.processing_params = ProcessingParameters(
+                target_width=self.custom_params.target_width,
+                target_height=self.custom_params.target_height,
+                padding_top=self.custom_params.padding_top,
+                padding_bottom=self.custom_params.padding_bottom,
+                padding_side=self.custom_params.padding_side,
+                border_color=self.custom_params.border_color,
+                shift_x=self.custom_params.shift_x,
+                shift_y=self.custom_params.shift_y,
+                zoom_out_factor=self.custom_params.zoom_out_factor,
+                grayscale=self.custom_params.grayscale
+            )
+            logger.info("Applied saved custom parameters")
+        else:
+            logger.info("No saved custom parameters, will use config custom preset")
     
     def toggle_instructions(self) -> None:
         """Toggle the instructions display state."""

@@ -93,6 +93,7 @@ class HeadshotProcessor:
             zoom_out_factor = processing_params["zoom_out_factor"]
             shift_x = processing_params["shift_x"]
             shift_y = processing_params["shift_y"]
+            grayscale = processing_params.get("grayscale", False)
             
             logger.debug(f"Processing parameters: {processing_params}")
             
@@ -121,6 +122,11 @@ class HeadshotProcessor:
             
             # Resize and add borders
             final_image = self._finalize_image(cropped, target_size, border_color)
+            
+            # Apply grayscale conversion if requested
+            if grayscale:
+                final_image = self._convert_to_grayscale(final_image)
+                logger.debug("Applied grayscale conversion")
             
             # Update image data with results
             image_data.set_processed_image(final_image, processing_params)
@@ -194,6 +200,14 @@ class HeadshotProcessor:
                 f"Face detection error: {e}",
                 "Face detection failed. Please ensure the image contains a clear face and try again."
             )
+    
+    def _convert_to_grayscale(self, image: Image.Image) -> Image.Image:
+        """Convert a PIL image to grayscale while preserving 3-channel mode for consistent saving."""
+        # Convert to grayscale (single channel)
+        gray_img = ImageOps.grayscale(image)
+        # Convert back to RGB so downstream saving options remain consistent
+        return gray_img.convert("RGB")
+    
     
     def _center_crop(
         self,

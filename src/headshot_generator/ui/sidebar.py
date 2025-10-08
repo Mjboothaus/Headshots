@@ -144,6 +144,13 @@ class Sidebar:
             key="border_color"
         )
         
+        grayscale = st.sidebar.checkbox(
+            "Black & White",
+            value=params.grayscale,
+            help="Convert the output image to grayscale (black and white)",
+            key="grayscale"
+        )
+        
         # Collect all parameters
         updated_params = {
             "target_width": target_width,
@@ -154,7 +161,8 @@ class Sidebar:
             "shift_x": shift_x,
             "shift_y": shift_y,
             "zoom_out_factor": zoom_out_factor,
-            "border_color": border_color
+            "border_color": border_color,
+            "grayscale": grayscale
         }
         
         # Log parameter changes
@@ -194,5 +202,6 @@ class Sidebar:
             current_params["shift_x"] != stored_params.shift_x or
             current_params["shift_y"] != stored_params.shift_y or
             current_params["zoom_out_factor"] != stored_params.zoom_out_factor or
-            current_params["border_color"] != stored_params.border_color
+            current_params["border_color"] != stored_params.border_color or
+            current_params["grayscale"] != stored_params.grayscale
         )

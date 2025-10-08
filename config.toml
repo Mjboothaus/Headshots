@@ -1,3 +1,6 @@
+# =============================================================================
+# DEFAULT PRESET
+# =============================================================================
 [default]
 target_width = 400
 target_height = 500
@@ -9,13 +12,164 @@ shift_x = 0
 shift_y = 0
 zoom_out_factor = 1.1
 
+# =============================================================================
+# SOCIAL MEDIA PLATFORMS
+# =============================================================================
+
+# LinkedIn Profile Picture (400x400, professional look)
 [linkedin]
 target_width = 400
 target_height = 400
 padding_top = 0.3
 padding_bottom = 0.3
 padding_side = 0.2
-border_color = "#F3F2EF"
+border_color = "#F3F2EF"  # LinkedIn background colour
+shift_x = 0
+shift_y = 0
+zoom_out_factor = 1.2
+
+# Instagram Profile Picture (400x400, square format)
+[instagram]
+target_width = 400
+target_height = 400
+padding_top = 0.25
+padding_bottom = 0.25
+padding_side = 0.15
+border_color = "#FFFFFF"  # Clean white background
+shift_x = 0
+shift_y = 0
+zoom_out_factor = 1.15
+
+# Facebook Profile Picture (400x400, square format)
+[facebook]
+target_width = 400
+target_height = 400
+padding_top = 0.3
+padding_bottom = 0.2
+padding_side = 0.2
+border_color = "#1877F2"  # Facebook blue
+shift_x = 0
+shift_y = 0
+zoom_out_factor = 1.1
+
+# Twitter/X Profile Picture (400x400, square format)
+[twitter]
+target_width = 400
+target_height = 400
+padding_top = 0.25
+padding_bottom = 0.25
+padding_side = 0.15
+border_color = "#1DA1F2"  # Twitter blue
+shift_x = 0
+shift_y = 0
+zoom_out_factor = 1.1
+
+# =============================================================================
+# PROFESSIONAL & DEVELOPMENT PLATFORMS
+# =============================================================================
+
+# GitHub Profile Picture (420x420, developer-focused)
+[github]
+target_width = 420
+target_height = 420
+padding_top = 0.25
+padding_bottom = 0.25
+padding_side = 0.15
+border_color = "#0D1117"  # GitHub dark theme
+shift_x = 0
+shift_y = 0
+zoom_out_factor = 1.1
+
+# About.me Profile Picture (400x400, personal branding)
+[about_me]
+target_width = 400
+target_height = 400
+padding_top = 0.2
+padding_bottom = 0.3
+padding_side = 0.15
+border_color = "#FF6B35"  # About.me orange
+shift_x = 0
+shift_y = 0
+zoom_out_factor = 1.15
+
+# =============================================================================
+# COMMUNICATION PLATFORMS
+# =============================================================================
+
+# Discord Profile Picture (400x400, gaming/community focus)
+[discord]
+target_width = 400
+target_height = 400
+padding_top = 0.2
+padding_bottom = 0.2
+padding_side = 0.15
+border_color = "#5865F2"  # Discord blurple
+shift_x = 0
+shift_y = 0
+zoom_out_factor = 1.1
+
+# Slack Profile Picture (400x400, workplace communication)
+[slack]
+target_width = 400
+target_height = 400
+padding_top = 0.25
+padding_bottom = 0.25
+padding_side = 0.15
+border_color = "#4A154B"  # Slack aubergine
+shift_x = 0
+shift_y = 0
+zoom_out_factor = 1.1
+
+# Zoom Profile Picture (400x400, video conferencing)
+[zoom]
+target_width = 400
+target_height = 400
+padding_top = 0.3
+padding_bottom = 0.2
+padding_side = 0.2
+border_color = "#2D8CFF"  # Zoom blue
+shift_x = 0
+shift_y = 0
+zoom_out_factor = 1.2
+
+# =============================================================================
+# FORMAL & OFFICIAL PURPOSES
+# =============================================================================
+
+# Professional Headshot (3:4 ratio, formal)
+[professional]
+target_width = 300
+target_height = 400
+padding_top = 0.4
+padding_bottom = 0.6
+padding_side = 0.1
+border_color = "#2C3E50"  # Professional dark grey
+shift_x = 0
+shift_y = 0
+zoom_out_factor = 1.3
+
+# Passport Photo (350x450, official requirements)
+[passport]
+target_width = 350
+target_height = 450
+padding_top = 0.15
+padding_bottom = 0.1
+padding_side = 0.05
+border_color = "#FFFFFF"  # White background
+shift_x = 0
+shift_y = -10
+zoom_out_factor = 1.0
+
+# =============================================================================
+# CUSTOM PRESET (User adjustable)
+# =============================================================================
+[custom]
+target_width = 400
+target_height = 500
+padding_top = 0.3
+padding_bottom = 0.4
+padding_side = 0.15
+border_color = "#333333"  # Neutral grey
 shift_x = 0
 shift_y = 0
 zoom_out_factor = 1.2

@@ -149,27 +149,48 @@ class HeadshotApp:
             st.error("Failed to process the uploaded file. Please try again.")
     
     def _render_profile_selector(self) -> None:
-        """Render the profile selection dropdown."""
+        """Render the profile selection using segmented control."""
         try:
             # Get available presets
             available_presets = self.config_manager.get_presets()
+            
+            # Create display names with text-based icons for better UX
+            preset_display_map = {
+                "Default": "◉ Default",
+                "Linkedin": "▣ LinkedIn", 
+                "Instagram": "◘ Instagram",
+                "Facebook": "◈ Facebook",
+                "Twitter": "◐ Twitter",
+                "Github": "</> GitHub",
+                "About_me": "◎ About.me",
+                "Discord": "◇ Discord",
+                "Slack": "◆ Slack",
+                "Zoom": "◊ Zoom",
+                "Professional": "◉ Professional",
+                "Passport": "◈ Passport",
+                "Custom": "⚙ Custom"
+            }
+            
+            # Filter available options and add Custom
             preset_options = available_presets + ["Custom"]
+            display_options = [preset_display_map.get(preset.title(), f"📋 {preset.title()}") for preset in preset_options]
             
-            # Get current selection
-            current_index = 0
-            if st.session_state.app_state.selected_preset in preset_options:
-                current_index = preset_options.index(st.session_state.app_state.selected_preset)
+            # Get current selection (default to first option if not found)
+            current_selection = st.session_state.app_state.selected_preset
+            if current_selection not in preset_options:
+                current_selection = preset_options[0] if preset_options else "Default"
             
-            selected_preset = st.selectbox(
+            selected_preset = st.segmented_control(
                 "Profile",
-                preset_options,
-                index=current_index,
-                help="Choose a preset profile or select 'Custom' to manually adjust settings in the sidebar",
-                label_visibility="collapsed"
+                options=preset_options,
+                format_func=lambda x: preset_display_map.get(x.title(), f"📋 {x.title()}"),
+                default=current_selection,
+                help="Choose a preset profile or select 'Custom' to manually adjust settings",
+                key="profile_selector"
             )
             
             # Handle preset changes
-            if selected_preset != st.session_state.app_state.selected_preset:
+            if selected_preset and selected_preset != st.session_state.app_state.selected_preset:
                 self._handle_preset_change(selected_preset)
                 
         except Exception as e:
@@ -181,17 +202,25 @@ class HeadshotApp:
         try:
             st.session_state.app_state.set_preset(selected_preset)
             
-            if selected_preset != "Custom":
-                # Apply preset configuration
+            if selected_preset == "Custom":
+                # For Custom, try to apply saved custom params first
+                st.session_state.app_state.apply_custom_preset()
+                
+                # If no saved custom params, fall back to config custom preset
+                if st.session_state.app_state.custom_params is None:
+                    preset_config = self.config_manager.get_preset_config(selected_preset)
+                    st.session_state.app_state.apply_preset(preset_config)
+            else:
+                # Apply preset configuration for standard presets
                 preset_config = self.config_manager.get_preset_config(selected_preset)
                 st.session_state.app_state.apply_preset(preset_config)
-                
-                # Reprocess image if available
-                if st.session_state.image_data.original_image is not None:
-                    self._process_current_image()
-                
-                # Force rerun to update sliders
-                st.rerun()
+            
+            # Reprocess image if available
+            if st.session_state.image_data.original_image is not None:
+                self._process_current_image()
+            
+            # Force rerun to update sliders
+            st.rerun()
             
             logger.info(f"Preset changed to: {selected_preset}")
             
@@ -208,9 +237,16 @@ class HeadshotApp:
             # Update session state
             st.session_state.app_state.update_processing_params(**current_params)
             
-            # Set preset to Custom since manual changes were made
-            if st.session_state.app_state.selected_preset != "Custom":
+            # If in Custom mode, update the custom_params to persist changes
+            if st.session_state.app_state.selected_preset == "Custom":
+                # Update custom params with current changes
+                st.session_state.app_state.custom_params = ProcessingParameters.from_config(current_params)
+                logger.info("Updated custom parameters with manual changes")
+            else:
+                # Set preset to Custom since manual changes were made to a standard preset
                 st.session_state.app_state.set_preset("Custom")
+                # Save the modified parameters as custom
+                st.session_state.app_state.custom_params = ProcessingParameters.from_config(current_params)
             
             # Reprocess image if available
             if st.session_state.image_data.original_image is not None:
@@ -316,12 +352,17 @@ class HeadshotApp:
             
             st.session_state.image_data.processed_image.save(buffer, **save_kwargs)
             
+            # Generate dynamic filename based on preset and grayscale setting
+            preset_name = st.session_state.app_state.selected_preset.lower()
+            grayscale_suffix = "_bw" if st.session_state.app_state.processing_params.grayscale else ""
+            filename = f"headshot_{preset_name}{grayscale_suffix}{format_info['extension']}"
+            
             st.download_button(
                 label=f"💾 Download as {format_info['format'].upper()}",
                 data=buffer.getvalue(),
-                file_name=f"headshot{format_info['extension']}",
+                file_name=filename,
                 mime=format_info["mime"],
-                help=f"Download the processed headshot as {format_info['format']} format",
+                help=f"Download the processed headshot as {format_info['format']} format (filename: {filename})",
                 width="stretch"
             )
             
@@ -335,14 +376,19 @@ class HeadshotApp:
             buffer = io.BytesIO()
             st.session_state.image_data.processed_image.save(buffer, format="JPEG")
             
+            # Generate dynamic filename based on preset and grayscale setting
+            preset_name = st.session_state.app_state.selected_preset.lower()
+            grayscale_suffix = "_bw" if st.session_state.app_state.processing_params.grayscale else ""
+            filename = f"headshot_{preset_name}{grayscale_suffix}.jpg"
+            
             col1, col2, col3 = st.columns([1, 2, 1])
             with col2:
                 st.download_button(
                     label="💾 Download Headshot",
                     data=buffer.getvalue(),
-                    file_name="headshot.jpg",
+                    file_name=filename,
                     mime="image/jpeg",
-                    help="Download the processed headshot as a JPEG file",
+                    help=f"Download the processed headshot as a JPEG file (filename: {filename})",
                     width="stretch"
                 )
         except Exception as e:
