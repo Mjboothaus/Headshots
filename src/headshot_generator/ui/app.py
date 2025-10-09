@@ -218,8 +218,11 @@ class HeadshotApp:
                 key="profile_selector"
             )
             
-            # Handle preset changes
-            if selected_preset and selected_preset != st.session_state.app_state.selected_preset:
+            # Only handle preset changes if selection actually changed
+            # (this prevents unnecessary reruns when the selector rerenders)
+            if (selected_preset and 
+                selected_preset != st.session_state.app_state.selected_preset and
+                "profile_selector" in st.session_state):
                 self._handle_preset_change(selected_preset)
                 
         except Exception as e:
@@ -261,7 +264,7 @@ class HeadshotApp:
             st.error("Failed to apply the selected preset. Please try again.")
     
     def _handle_parameter_changes(self, current_params: Dict[str, Any]) -> None:
-        """Handle parameter changes from the sidebar."""
+        """Handle parameter changes from the sidebar with intelligent caching."""
         if self.sidebar.has_parameter_changes(current_params, st.session_state.app_state):
             # Update session state
             st.session_state.app_state.update_processing_params(**current_params)
@@ -277,12 +280,14 @@ class HeadshotApp:
                 # Save the modified parameters as custom
                 st.session_state.app_state.custom_params = ProcessingParameters.from_config(current_params)
             
-            # Reprocess image if available
-            if st.session_state.image_data.original_image is not None:
+            # Only reprocess image if available and if processing parameters actually changed
+            # (not just UI state changes)
+            if (st.session_state.image_data.original_image is not None and 
+                self._processing_parameters_changed(current_params)):
                 self._process_current_image()
     
     def _process_current_image(self) -> None:
-        """Process the current image with current parameters."""
+        """Process the current image with current parameters and caching."""
         try:
             if st.session_state.image_data.original_image is None:
                 return
@@ -290,13 +295,26 @@ class HeadshotApp:
             # Get processing parameters
             processing_params = st.session_state.app_state.get_processing_dict()
             
+            # Create cache key from processing parameters
+            cache_key = self._create_processing_cache_key(processing_params)
+            
+            # Check if we already have this exact processing result cached
+            if (hasattr(st.session_state.image_data, 'processing_cache_key') and 
+                st.session_state.image_data.processing_cache_key == cache_key and
+                st.session_state.image_data.processed_image is not None):
+                logger.debug("Using cached processed image (parameters unchanged)")
+                return
+            
             # Process the image
             processed_image = self.processor.process_image(
                 st.session_state.image_data,
                 processing_params
             )
             
-            logger.info("Image processed successfully")
+            # Cache the processing parameters
+            st.session_state.image_data.processing_cache_key = cache_key
+            
+            logger.info("Image processed successfully and cached")
             
         except HeadshotGeneratorError as e:
             logger.error(f"Image processing error: {e}")
@@ -368,29 +386,44 @@ class HeadshotApp:
                         st.markdown(f"**{format_label}**")
                         
                         format_options = list(formats.keys())
+                        # Initialize format selection in session state if not exists
+                        if "selected_format" not in st.session_state:
+                            st.session_state.selected_format = format_options[0]
+                        
                         # Use segmented control for format selection
                         selected_format = st.segmented_control(
                             "Format Selection",
                             options=format_options,
-                            default=format_options[0],
+                            default=st.session_state.selected_format,
                             label_visibility="collapsed",
                             key="format_selector"
                         )
+                        
+                        # Update session state if format changed
+                        if selected_format != st.session_state.selected_format:
+                            st.session_state.selected_format = selected_format
                     
                     with col2:
                         filename_label = self.config_manager.get_ui_config('labels.download_filename') or "Filename:"
                         st.markdown(f"**{filename_label}**")
                         
-                        # Generate default filename
-                        default_filename = self._generate_filename(selected_format, formats[selected_format])
+                        # Initialize filename in session state if not exists or format changed
+                        filename_key = f"filename_{selected_format}"
+                        if filename_key not in st.session_state or st.session_state.get("last_format") != selected_format:
+                            st.session_state[filename_key] = self._generate_filename(selected_format, formats[selected_format])
+                            st.session_state.last_format = selected_format
                         
-                        # Editable filename input
+                        # Editable filename input with persistent state
                         custom_filename = st.text_input(
                             "Custom filename",
-                            value=default_filename,
+                            value=st.session_state[filename_key],
                             label_visibility="collapsed",
                             key="custom_filename"
                         )
+                        
+                        # Update session state if filename changed
+                        if custom_filename != st.session_state[filename_key]:
+                            st.session_state[filename_key] = custom_filename
                         
                         # Download button with custom filename
                         self._render_download_button_with_filename(
@@ -523,6 +556,85 @@ class HeadshotApp:
         logger.debug(f"Display image optimized: {width}x{height} -> {new_width}x{new_height}")
         
         return display_image
+    
+    def _processing_parameters_changed(self, current_params: Dict[str, Any]) -> bool:
+        """
+        Check if processing parameters have actually changed (not just UI state).
+        
+        Args:
+            current_params: Current parameter values from UI
+            
+        Returns:
+            True if processing parameters changed, False if only UI state changed
+        """
+        if not hasattr(st.session_state.image_data, 'processing_params'):
+            return True  # First time processing
+        
+        last_params = st.session_state.image_data.processing_params
+        
+        # Only check parameters that affect image processing (exclude UI-only params)
+        processing_keys = [
+            'target_width', 'target_height', 'padding_top', 'padding_bottom', 
+            'padding_side', 'shift_x', 'shift_y', 'zoom_out_factor', 
+            'border_color', 'grayscale'
+        ]
+        
+        # Convert current_params to processing format for comparison
+        current_processing = {
+            'target_width': current_params.get('target_width'),
+            'target_height': current_params.get('target_height'),
+            'padding_top_ratio': current_params.get('padding_top'),
+            'padding_bottom_ratio': current_params.get('padding_bottom'),
+            'padding_side_ratio': current_params.get('padding_side'),
+            'shift_x': current_params.get('shift_x'),
+            'shift_y': current_params.get('shift_y'),
+            'zoom_out_factor': current_params.get('zoom_out_factor'),
+            'border_color': current_params.get('border_color'),
+            'grayscale': current_params.get('grayscale', False)
+        }
+        
+        # Check if any processing parameter has changed
+        for key, value in current_processing.items():
+            if key in last_params and last_params[key] != value:
+                logger.debug(f"Processing parameter changed: {key} {last_params[key]} -> {value}")
+                return True
+                
+        logger.debug("No processing parameter changes detected, skipping reprocessing")
+        return False
+    
+    def _create_processing_cache_key(self, processing_params: Dict[str, Any]) -> str:
+        """
+        Create a cache key from processing parameters to detect when reprocessing is needed.
+        
+        Args:
+            processing_params: Processing parameters dictionary
+            
+        Returns:
+            Cache key string
+        """
+        import hashlib
+        import json
+        
+        # Create a stable string representation of the parameters
+        # Only include parameters that affect image processing
+        cache_params = {
+            'target_width': processing_params.get('target_width'),
+            'target_height': processing_params.get('target_height'),
+            'padding_top_ratio': processing_params.get('padding_top_ratio'),
+            'padding_bottom_ratio': processing_params.get('padding_bottom_ratio'),
+            'padding_side_ratio': processing_params.get('padding_side_ratio'),
+            'shift_x': processing_params.get('shift_x'),
+            'shift_y': processing_params.get('shift_y'),
+            'zoom_out_factor': processing_params.get('zoom_out_factor'),
+            'border_color': processing_params.get('border_color'),
+            'grayscale': processing_params.get('grayscale', False)
+        }
+        
+        # Create a hash of the parameters for efficient comparison
+        params_str = json.dumps(cache_params, sort_keys=True)
+        cache_key = hashlib.md5(params_str.encode()).hexdigest()
+        
+        return cache_key
     
     def _generate_filename(self, format_key: str, format_info: Dict[str, Any]) -> str:
         """

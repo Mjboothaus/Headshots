@@ -158,7 +158,7 @@ class Sidebar:
             "padding_top": padding_top,
             "padding_bottom": padding_bottom,
             "padding_side": padding_side,
-            "shift_x": shift_x,  # Keep as-is: positive = right, negative = left
+            "shift_x": -shift_x,  # Invert: positive slider = right, negative slider = left
             "shift_y": -shift_y,  # Invert: positive slider = down, negative slider = up
             "zoom_out_factor": zoom_out_factor,
             "border_color": border_color,
