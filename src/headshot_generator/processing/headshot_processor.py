@@ -329,21 +329,32 @@ class HeadshotProcessor:
         target_size: Tuple[int, int],
         border_color: str
     ) -> Image.Image:
-        """Finalize the image by resizing and adding borders."""
-        # Resize maintaining aspect ratio
-        cropped.thumbnail(target_size, Image.LANCZOS)
+        """Finalize the image by resizing and adding borders while preserving aspect ratio."""
+        target_width, target_height = target_size
+        crop_width, crop_height = cropped.size
         
-        # Add borders to match exact target size
-        final_img = ImageOps.expand(
-            cropped,
-            border=(
-                (target_size[0] - cropped.width) // 2,
-                (target_size[1] - cropped.height) // 2
-            ),
-            fill=border_color
-        )
+        # Calculate the scaling factor to fit within target size while maintaining aspect ratio
+        scale_width = target_width / crop_width
+        scale_height = target_height / crop_height
+        scale_factor = min(scale_width, scale_height)
         
-        # Ensure exact target size
-        final_img = final_img.resize(target_size, Image.LANCZOS)
+        # Calculate the new size after scaling
+        new_width = int(crop_width * scale_factor)
+        new_height = int(crop_height * scale_factor)
+        
+        # Resize the image maintaining aspect ratio
+        resized_img = cropped.resize((new_width, new_height), Image.Resampling.LANCZOS)
+        
+        # Create a new image with the target size and border color background
+        final_img = Image.new('RGB', target_size, border_color)
+        
+        # Calculate position to center the resized image
+        paste_x = (target_width - new_width) // 2
+        paste_y = (target_height - new_height) // 2
+        
+        # Paste the resized image onto the background
+        final_img.paste(resized_img, (paste_x, paste_y))
+        
+        logger.debug(f"Image finalized: {cropped.size} -> {resized_img.size} -> {final_img.size}")
         
         return final_img

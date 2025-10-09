@@ -207,3 +207,48 @@ extension = ".webp"
 mime = "image/webp"
 quality = 95
 optimize = true
+
+# =============================================================================
+# UI CONFIGURATION
+# =============================================================================
+[ui]
+app_title = "Headshot Creator"
+app_description = "Upload an image and adjust settings to generate a headshot with real-time preview."
+page_title = "Headshot Creator"
+page_icon = "📸"
+max_file_size_warning_mb = 5.0
+default_filename_template = "headshot_{preset}{grayscale_suffix}{extension}"
+
+# Labels and text
+[ui.labels]
+profile_selector = "Profile:"
+profile_help = "Choose a preset profile or select 'Custom' to manually adjust settings"
+download_section = "💾 Download Headshot"
+download_format = "Format:"
+download_filename = "Filename:"
+download_button = "💾 Download as {format}"
+file_upload = "Choose an image to get started"
+file_upload_help = "Upload a PNG or JPG image to process into a headshot."
+original_image = "Original Image"
+processed_image = "Processed Headshot"
+original_caption = "Before (Original)"
+processed_caption = "After (Processed)"
+upload_prompt = "📷 Upload an image using the sidebar to get started"
+processed_prompt = "✨ Your processed headshot will appear here"
+file_size_warning = "⚠️ Large file detected: {size:.1f}MB. Image will be automatically optimised for better performance."
+
+# Profile display icons (alphabetized)
+[ui.profile_icons]
+About_me = "◎ About.me"
+Custom = "⚙ Custom"
+Default = "◉ Default"
+Discord = "◇ Discord"
+Facebook = "◈ Facebook"
+Github = "</> GitHub"
+Instagram = "◘ Instagram"
+Linkedin = "▣ LinkedIn"
+Passport = "◈ Passport"
+Professional = "◉ Professional"
+Slack = "◆ Slack"
+Twitter = "◐ Twitter"
+Zoom = "◊ Zoom"

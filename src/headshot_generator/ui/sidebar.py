@@ -112,7 +112,7 @@ class Sidebar:
                     slider_config.get("shift_max", 100),
                     params.shift_x,
                     5,
-                    help="Move the crop box left (negative) or right (positive) in pixels.",
+                    help="Move the crop box right (positive) or left (negative) in pixels.",
                     key="shift_x"
                 )
                 shift_y = st.slider(
@@ -121,7 +121,7 @@ class Sidebar:
                     slider_config.get("shift_max", 100),
                     params.shift_y,
                     5,
-                    help="Move the crop box up (negative) or down (positive) in pixels.",
+                    help="Move the crop box down (positive) or up (negative) in pixels.",
                     key="shift_y"
                 )
             with col2:
@@ -151,15 +151,15 @@ class Sidebar:
             key="grayscale"
         )
         
-        # Collect all parameters
+        # Collect all parameters (invert shift values for intuitive direction)
         updated_params = {
             "target_width": target_width,
             "target_height": target_height,
             "padding_top": padding_top,
             "padding_bottom": padding_bottom,
             "padding_side": padding_side,
-            "shift_x": shift_x,
-            "shift_y": shift_y,
+            "shift_x": shift_x,  # Keep as-is: positive = right, negative = left
+            "shift_y": -shift_y,  # Invert: positive slider = down, negative slider = up
             "zoom_out_factor": zoom_out_factor,
             "border_color": border_color,
             "grayscale": grayscale

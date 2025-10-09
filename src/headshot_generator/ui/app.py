@@ -46,9 +46,17 @@ class HeadshotApp:
     
     def _setup_page_config(self) -> None:
         """Set up Streamlit page configuration."""
+        # Try to get UI config, fallback to defaults if not available
+        try:
+            page_title = self.config_manager.get_ui_config('page_title') or "Headshot Creator"
+            page_icon = self.config_manager.get_ui_config('page_icon') or "📸"
+        except:
+            page_title = "Headshot Creator"
+            page_icon = "📸"
+            
         st.set_page_config(
-            page_title="Headshot Generator",
-            page_icon="📸",
+            page_title=page_title,
+            page_icon=page_icon,
             layout="wide",
             initial_sidebar_state="expanded"
         )
@@ -78,9 +86,12 @@ class HeadshotApp:
         try:
             logger.info("Starting application run")
             
-            # Main page header
-            st.title("Interactive Headshot Generator")
-            st.write("Upload an image and adjust settings to generate a headshot with real-time preview.")
+            # Main page header - use config values
+            app_title = self.config_manager.get_ui_config('app_title') or "Headshot Creator"
+            app_description = self.config_manager.get_ui_config('app_description') or "Upload an image and adjust settings to generate a headshot with real-time preview."
+            
+            st.markdown(f"# {app_title}")
+            st.write(app_description)
             
             # File upload and profile selection
             self._render_upload_and_profile_section()
@@ -112,27 +123,37 @@ class HeadshotApp:
         col1, col2 = st.columns(PROFILE_COLUMN_RATIO)
         
         with col1:
+            file_upload_label = self.config_manager.get_ui_config('labels.file_upload') or "Choose an image to get started"
+            file_upload_help = self.config_manager.get_ui_config('labels.file_upload_help') or "Upload a PNG or JPG image to process into a headshot."
+            
             uploaded_file = st.file_uploader(
-                "Choose an image to get started",
+                file_upload_label,
                 type=["png", "jpg", "jpeg"],
-                help="Upload a PNG or JPG image to process into a headshot."
+                help=file_upload_help
             )
             
             # Handle file upload
             if uploaded_file is not None:
-                # Show file size info for large files
+                # Show temporary file size warning for large files
                 if hasattr(uploaded_file, 'size') and uploaded_file.size:
                     file_size_mb = uploaded_file.size / (1024 * 1024)
-                    if file_size_mb > 5:  # Warn for files > 5MB
-                        st.warning(
-                            f"⚠️ Large file detected: {file_size_mb:.1f}MB. "
-                            f"Image will be automatically optimised for better performance."
-                        )
+                    max_size_mb = self.config_manager.get_ui_config('max_file_size_warning_mb') or 5.0
+                    
+                    if file_size_mb > max_size_mb:
+                        warning_template = self.config_manager.get_ui_config('labels.file_size_warning') or "⚠️ Large file detected: {size:.1f}MB. Image will be automatically optimised for better performance."
+                        warning_placeholder = st.empty()
+                        warning_placeholder.warning(warning_template.format(size=file_size_mb))
+                        
+                        # Clear warning after 3 seconds
+                        import time
+                        time.sleep(3)
+                        warning_placeholder.empty()
                 
                 self._handle_file_upload(uploaded_file)
         
         with col2:
-            st.markdown("**Profile:**")
+            profile_label = self.config_manager.get_ui_config('labels.profile_selector') or "Profile:"
+            st.markdown(f"**{profile_label}**")
             self._render_profile_selector()
     
     def _handle_file_upload(self, uploaded_file) -> None:
@@ -158,43 +179,42 @@ class HeadshotApp:
             st.error("Failed to process the uploaded file. Please try again.")
     
     def _render_profile_selector(self) -> None:
-        """Render the profile selection using segmented control."""
+        """Render the profile selection using dropdown with alphabetized options."""
         try:
-            # Get available presets
+            # Get available presets and add Custom
             available_presets = self.config_manager.get_presets()
-            
-            # Create display names with text-based icons for better UX
-            preset_display_map = {
-                "Default": "◉ Default",
-                "Linkedin": "▣ LinkedIn", 
-                "Instagram": "◘ Instagram",
-                "Facebook": "◈ Facebook",
-                "Twitter": "◐ Twitter",
-                "Github": "</> GitHub",
-                "About_me": "◎ About.me",
-                "Discord": "◇ Discord",
-                "Slack": "◆ Slack",
-                "Zoom": "◊ Zoom",
-                "Professional": "◉ Professional",
-                "Passport": "◈ Passport",
-                "Custom": "⚙ Custom"
-            }
-            
-            # Filter available options and add Custom
             preset_options = available_presets + ["Custom"]
-            display_options = [preset_display_map.get(preset.title(), f"📋 {preset.title()}") for preset in preset_options]
+            
+            # Sort alphabetically (Custom will be first due to capital C)
+            preset_options.sort()
+            
+            # Get display icons from config
+            profile_icons = self.config_manager.get_ui_config('profile_icons') or {}
+            
+            # Create format function for display
+            def format_preset(preset):
+                return profile_icons.get(preset, f"📋 {preset}")
             
             # Get current selection (default to first option if not found)
             current_selection = st.session_state.app_state.selected_preset
             if current_selection not in preset_options:
                 current_selection = preset_options[0] if preset_options else "Default"
             
-            selected_preset = st.segmented_control(
+            # Find the index for the current selection
+            try:
+                current_index = preset_options.index(current_selection)
+            except ValueError:
+                current_index = 0
+            
+            profile_help = self.config_manager.get_ui_config('labels.profile_help') or "Choose a preset profile or select 'Custom' to manually adjust settings"
+            
+            selected_preset = st.selectbox(
                 "Profile",
                 options=preset_options,
-                format_func=lambda x: preset_display_map.get(x.title(), f"📋 {x.title()}"),
-                default=current_selection,
-                help="Choose a preset profile or select 'Custom' to manually adjust settings",
+                index=current_index,
+                format_func=format_preset,
+                help=profile_help,
+                label_visibility="collapsed",
                 key="profile_selector"
             )
             
@@ -289,8 +309,16 @@ class HeadshotApp:
         """Render the image display section with memory optimization."""
         col1, col2 = st.columns(2)
         
+        # Get UI labels from config
+        original_label = self.config_manager.get_ui_config('labels.original_image') or "Original Image"
+        processed_label = self.config_manager.get_ui_config('labels.processed_image') or "Processed Headshot"
+        original_caption = self.config_manager.get_ui_config('labels.original_caption') or "Before (Original)"
+        processed_caption = self.config_manager.get_ui_config('labels.processed_caption') or "After (Processed)"
+        upload_prompt = self.config_manager.get_ui_config('labels.upload_prompt') or "📷 Upload an image using the sidebar to get started"
+        processed_prompt = self.config_manager.get_ui_config('labels.processed_prompt') or "✨ Your processed headshot will appear here"
+        
         with col1:
-            st.subheader("Original Image")
+            st.subheader(original_label)
             if st.session_state.image_data.original_image is not None:
                 # Use optimized display size for better performance
                 display_image = self._optimize_image_for_display(
@@ -298,14 +326,14 @@ class HeadshotApp:
                 )
                 st.image(
                     display_image,
-                    caption="Before (Original)",
-                    use_column_width=True  # More efficient than width="stretch"
+                    caption=original_caption,
+                    use_container_width=True  # Updated from deprecated use_column_width
                 )
             else:
-                st.info("📷 Upload an image using the sidebar to get started")
+                st.info(upload_prompt)
         
         with col2:
-            st.subheader("Processed Headshot")
+            st.subheader(processed_label)
             if st.session_state.image_data.processed_image is not None:
                 # Use optimized display size for better performance
                 display_image = self._optimize_image_for_display(
@@ -313,19 +341,20 @@ class HeadshotApp:
                 )
                 st.image(
                     display_image,
-                    caption="After (Processed)",
-                    use_column_width=True  # More efficient than width="stretch"
+                    caption=processed_caption,
+                    use_container_width=True  # Updated from deprecated use_column_width
                 )
             else:
-                st.info("✨ Your processed headshot will appear here")
+                st.info(processed_prompt)
     
     def _render_download_section(self) -> None:
-        """Render the download section."""
+        """Render the download section with segmented control and editable filename."""
         if (st.session_state.image_data.processed_image is not None and 
             st.session_state.image_data.original_image is not None):
             
             st.markdown("---")
-            st.subheader("💾 Download Headshot")
+            section_title = self.config_manager.get_ui_config('labels.download_section') or "💾 Download Headshot"
+            st.subheader(section_title)
             
             try:
                 # Get download formats from config
@@ -335,18 +364,40 @@ class HeadshotApp:
                     col1, col2 = st.columns([1, 2])
                     
                     with col1:
-                        st.markdown("**Format:**")
+                        format_label = self.config_manager.get_ui_config('labels.download_format') or "Format:"
+                        st.markdown(f"**{format_label}**")
+                        
                         format_options = list(formats.keys())
-                        selected_format = st.radio(
-                            "Choose format",
-                            format_options,
-                            index=0,
+                        # Use segmented control for format selection
+                        selected_format = st.segmented_control(
+                            "Format Selection",
+                            options=format_options,
+                            default=format_options[0],
                             label_visibility="collapsed",
-                            horizontal=True
+                            key="format_selector"
                         )
                     
                     with col2:
-                        self._render_download_button(selected_format, formats[selected_format])
+                        filename_label = self.config_manager.get_ui_config('labels.download_filename') or "Filename:"
+                        st.markdown(f"**{filename_label}**")
+                        
+                        # Generate default filename
+                        default_filename = self._generate_filename(selected_format, formats[selected_format])
+                        
+                        # Editable filename input
+                        custom_filename = st.text_input(
+                            "Custom filename",
+                            value=default_filename,
+                            label_visibility="collapsed",
+                            key="custom_filename"
+                        )
+                        
+                        # Download button with custom filename
+                        self._render_download_button_with_filename(
+                            selected_format, 
+                            formats[selected_format], 
+                            custom_filename
+                        )
                 else:
                     # Fallback to JPEG
                     self._render_fallback_download()
@@ -472,3 +523,69 @@ class HeadshotApp:
         logger.debug(f"Display image optimized: {width}x{height} -> {new_width}x{new_height}")
         
         return display_image
+    
+    def _generate_filename(self, format_key: str, format_info: Dict[str, Any]) -> str:
+        """
+        Generate default filename based on template from config.
+        
+        Args:
+            format_key: Format key (e.g., 'jpeg')
+            format_info: Format information dictionary
+        
+        Returns:
+            Generated filename
+        """
+        template = self.config_manager.get_ui_config('default_filename_template') or "headshot_{preset}{grayscale_suffix}{extension}"
+        
+        preset_name = st.session_state.app_state.selected_preset.lower()
+        grayscale_suffix = "_bw" if st.session_state.app_state.processing_params.grayscale else ""
+        extension = format_info['extension']
+        
+        return template.format(
+            preset=preset_name,
+            grayscale_suffix=grayscale_suffix,
+            extension=extension
+        )
+    
+    def _render_download_button_with_filename(
+        self, 
+        format_key: str, 
+        format_info: Dict[str, Any], 
+        filename: str
+    ) -> None:
+        """
+        Render download button with custom filename.
+        
+        Args:
+            format_key: Format key
+            format_info: Format information dictionary
+            filename: Custom filename
+        """
+        try:
+            # Generate image buffer
+            buffer = io.BytesIO()
+            save_kwargs = {"format": format_info["format"]}
+            
+            if format_info.get("quality"):
+                save_kwargs["quality"] = format_info["quality"]
+            if format_info.get("optimize"):
+                save_kwargs["optimize"] = format_info["optimize"]
+            
+            st.session_state.image_data.processed_image.save(buffer, **save_kwargs)
+            
+            # Get button label template from config
+            button_template = self.config_manager.get_ui_config('labels.download_button') or "💾 Download as {format}"
+            button_label = button_template.format(format=format_info['format'].upper())
+            
+            st.download_button(
+                label=button_label,
+                data=buffer.getvalue(),
+                file_name=filename,
+                mime=format_info["mime"],
+                help=f"Download the processed headshot as {format_info['format']} format (filename: {filename})",
+                use_container_width=True
+            )
+            
+        except Exception as e:
+            logger.error(f"Download button error: {e}")
+            st.error("Error generating download file.")

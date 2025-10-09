@@ -100,7 +100,7 @@ class ConfigManager:
         Returns:
             List of preset names
         """
-        system_sections = {'slider', 'download_formats'}
+        system_sections = {'slider', 'download_formats', 'ui'}
         return [
             key.title() 
             for key in self._config.keys() 
@@ -137,6 +137,34 @@ class ConfigManager:
             Dictionary of download formats and their settings
         """
         return self._config.get('download_formats', {})
+    
+    def get_ui_config(self, key: str = None) -> Any:
+        """
+        Get UI configuration values.
+        
+        Args:
+            key: Specific UI config key (e.g., 'app_title', 'labels.profile_selector')
+                If None, returns the entire UI config
+        
+        Returns:
+            UI configuration value or dictionary
+        """
+        ui_config = self._config.get('ui', {})
+        
+        if key is None:
+            return ui_config
+        
+        # Handle nested keys like 'labels.profile_selector'
+        keys = key.split('.')
+        value = ui_config
+        
+        for k in keys:
+            if isinstance(value, dict) and k in value:
+                value = value[k]
+            else:
+                return None
+        
+        return value
     
     def reload(self) -> None:
         """Reload configuration from file."""
