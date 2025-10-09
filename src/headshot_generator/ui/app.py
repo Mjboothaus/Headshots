@@ -1,6 +1,8 @@
 """Main HeadshotApp class for orchestrating the application."""
 
 import io
+import hashlib
+import json
 from pathlib import Path
 from typing import Optional, Dict, Any
 
@@ -14,6 +16,7 @@ from ..constants import PROFILE_COLUMN_RATIO, INSTRUCTIONS_FILE
 from ..models.image_data import ImageData
 from ..models.session_state import SessionState, ProcessingParameters
 from ..processing.headshot_processor import HeadshotProcessor
+from ..captcha import StreamlitCaptcha
 from .sidebar import Sidebar
 
 # Initialize logging
@@ -36,6 +39,14 @@ class HeadshotApp:
             
             # Initialize session state
             self._initialize_session_state()
+            
+            # Initialize CAPTCHA system with configurable settings
+            captcha_enabled = self.config_manager.get_ui_config('captcha.enabled')
+            if captcha_enabled is not False:  # Default to enabled if not specified
+                max_attempts = self.config_manager.get_ui_config('captcha.max_attempts') or 2
+                self.captcha = StreamlitCaptcha(max_attempts=max_attempts)
+            else:
+                self.captcha = None
             
             logger.info("HeadshotApp initialized successfully")
             
@@ -82,11 +93,22 @@ class HeadshotApp:
         logger.debug("Session state initialized")
     
     def run(self) -> None:
-        """Run the main application."""
+        """Run the main application with CAPTCHA verification."""
         try:
             logger.info("Starting application run")
             
-            # Main page header - use config values
+            # Check CAPTCHA verification first (if enabled)
+            if self.captcha and not self.captcha.is_verified():
+                app_title = self.config_manager.get_ui_config('app_title') or "Headshot Creator"
+                description = self.config_manager.get_ui_config('captcha.description') or "🔒 Please complete the verification below to access the headshot generator."
+                captcha_title = self.config_manager.get_ui_config('captcha.title') or "🤖 Please verify you're not a bot"
+                
+                st.markdown(f"# {app_title}")
+                st.write(description)
+                self.captcha.display_captcha(captcha_title)
+                return
+            
+            # Main page header - use config values (only shown after CAPTCHA)
             app_title = self.config_manager.get_ui_config('app_title') or "Headshot Creator"
             app_description = self.config_manager.get_ui_config('app_description') or "Upload an image and adjust settings to generate a headshot with real-time preview."
             

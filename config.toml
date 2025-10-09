@@ -252,3 +252,17 @@ Professional = "◉ Professional"
 Slack = "◆ Slack"
 Twitter = "◐ Twitter"
 Zoom = "◊ Zoom"
+
+# CAPTCHA Configuration
+[ui.captcha]
+enabled = true
+max_attempts = 2
+title = "🤖 Please verify you're not a bot"
+description = "🔒 Please complete the verification below to access the headshot generator."
+skip_button_text = "🎲 Skip and Choose Another"
+verification_success = "✅ Verification successful! You can now use the app."
+error_messages = {
+    wrong_button = "❌ You clicked the wrong button. Please try again.",
+    invalid_number = "❌ Please enter a valid number.",
+    incorrect_answer = "❌ Incorrect answer. Please try again."
+}

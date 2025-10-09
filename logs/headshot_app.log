@@ -398,3 +398,4 @@
 2025-10-08 17:18:59 | INFO     | headshot_generator.models.session_state:set_preset:145 | Selected preset: LinkedIn
 2025-10-08 17:18:59 | INFO     | headshot_generator.models.session_state:set_preset:145 | Selected preset: Custom
 2025-10-08 17:18:59 | INFO     | headshot_generator.models.session_state:apply_custom_preset:163 | Applied saved custom parameters
+2025-10-10 09:54:33 | INFO     | src.headshot_generator.utils.logger:setup_logger:52 | Logging initialized with level: INFO
