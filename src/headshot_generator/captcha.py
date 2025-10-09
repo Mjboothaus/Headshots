@@ -53,25 +53,40 @@ class StreamlitCaptcha:
         
         logger.debug(f"Generated CAPTCHA: {st.session_state.captcha_question} = {st.session_state.captcha_answer}")
 
-    def _create_buttons(self) -> Tuple[bool, bool]:
-        """Create and return the state of dual buttons with random positions.
+    def _handle_captcha_submission(self, button1_clicked: bool, button2_clicked: bool, user_answer: str) -> None:
+        """Handle CAPTCHA form submission with validation.
         
-        Returns:
-            Tuple of (button1_clicked, button2_clicked)
+        Args:
+            button1_clicked: Whether button1 was clicked
+            button2_clicked: Whether button2 was clicked
+            user_answer: User's input answer
         """
-        col1, col2 = st.columns(2)
-        button1_label = "Submit" if st.session_state.button_assignment == 'submit' else "Cancel"
-        button2_label = "Cancel" if st.session_state.button_assignment == 'submit' else "Submit"
-        
-        is_valid_input = st.session_state.get('captcha_input', '').strip() and \
-                         st.session_state.get('captcha_input', '').replace('-', '').isdigit()
-        
-        with col1:
-            button1_clicked = st.button(button1_label, key="button1", disabled=not is_valid_input)
-        with col2:
-            button2_clicked = st.button(button2_label, key="button2", disabled=not is_valid_input)
-        
-        return button1_clicked, button2_clicked
+        # Check if correct button was clicked
+        if not self._is_correct_button_clicked(button1_clicked, button2_clicked):
+            st.error("❌ **You clicked the wrong button.** Please try again.")
+            self._handle_failed_attempt()
+            return
+            
+        # Validate input format
+        if not user_answer.strip() or not user_answer.replace('-', '').isdigit():
+            st.error("❌ **Please enter a valid number.**")
+            self._handle_failed_attempt()
+            return
+            
+        # Check if answer is correct
+        try:
+            if int(user_answer) == st.session_state.captcha_answer:
+                st.session_state.captcha_verified = True
+                st.success("✅ **Verification successful!** You can now use the app.")
+                self._clear_captcha_data()
+                logger.info("CAPTCHA verification successful")
+                st.rerun()  # Refresh to show main app
+            else:
+                st.error("❌ **Incorrect answer.** Please try again.")
+                self._handle_failed_attempt()
+        except ValueError:
+            st.error("❌ **Invalid input format.** Please enter a number.")
+            self._handle_failed_attempt()
 
     def _is_correct_button_clicked(self, button1_clicked: bool, button2_clicked: bool) -> bool:
         """Check if the correct button was clicked.
@@ -106,51 +121,69 @@ class StreamlitCaptcha:
         logger.debug("CAPTCHA data cleared")
 
     def display_captcha(self, title: str = "Please verify you're not a bot") -> None:
-        """Display CAPTCHA and verify user input with dual buttons.
+        """Display CAPTCHA with improved styling and form integration.
         
         Args:
             title: Title to display above the CAPTCHA
         """
         st.subheader(title)
-        st.write(st.session_state.captcha_question)
         
-        remaining_skips = self.max_attempts - st.session_state.captcha_attempts
-        if remaining_skips > 0:
-            st.write(f"💡 Skips remaining: {remaining_skips}")
+        # Create a prominent bordered container for the CAPTCHA
+        with st.container(border=True):
+            # Display the math question with enhanced styling
+            st.markdown(
+                f"### 🧮 **{st.session_state.captcha_question}**", 
+                unsafe_allow_html=True
+            )
             
-            if st.button("🎲 Skip and Choose Another", key="skip_captcha"):
-                st.session_state.captcha_attempts += 1
-                self._generate_captcha()
-                st.rerun()
-        else:
-            st.write("⚠️ No more skips available. Please solve this puzzle.")
-        
-        user_answer = st.text_input("Enter your answer:", key="captcha_input")
-        button1_clicked, button2_clicked = self._create_buttons()
-        
-        if button1_clicked or button2_clicked:
-            # Check if correct button was clicked
-            if not self._is_correct_button_clicked(button1_clicked, button2_clicked):
-                st.error("❌ You clicked the wrong button. Please try again.")
-                self._handle_failed_attempt()
-                return
+            # Show skip information
+            remaining_skips = self.max_attempts - st.session_state.captcha_attempts
+            if remaining_skips > 0:
+                st.info(f"💡 **Skip option available:** {remaining_skips} remaining")
                 
-            # Validate input
-            if not user_answer.strip() or not user_answer.replace('-', '').isdigit():
-                st.error("❌ Please enter a valid number.")
-                self._handle_failed_attempt()
-                return
-                
-            # Check answer
-            if int(user_answer) == st.session_state.captcha_answer:
-                st.session_state.captcha_verified = True
-                st.success("✅ Verification successful! You can now use the app.")
-                self._clear_captcha_data()
-                logger.info("CAPTCHA verification successful")
-                st.rerun()  # Refresh to show main app
+                # Skip button outside the form
+                if st.button("🎲 Skip and Choose Another", key="skip_captcha", type="secondary"):
+                    st.session_state.captcha_attempts += 1
+                    self._generate_captcha()
+                    logger.info(f"CAPTCHA skipped, attempts: {st.session_state.captcha_attempts}/{self.max_attempts}")
+                    st.rerun()
             else:
-                st.error("❌ Incorrect answer. Please try again.")
-                self._handle_failed_attempt()
+                st.warning("⚠️ **No more skips available.** Please solve this puzzle.")
+            
+            # Use st.form for better UX and to handle submit behavior
+            with st.form(key="captcha_form", clear_on_submit=False):
+                st.markdown("#### Enter your answer:")
+                user_answer = st.text_input(
+                    "Answer", 
+                    key="captcha_input",
+                    placeholder="Enter the result...",
+                    label_visibility="collapsed"
+                )
+                
+                # Create dual submit buttons with random assignment
+                col1, col2 = st.columns(2)
+                button1_label = "Submit Answer" if st.session_state.button_assignment == 'submit' else "Cancel"
+                button2_label = "Cancel" if st.session_state.button_assignment == 'submit' else "Submit Answer"
+                
+                # Check if input is valid to enable/disable buttons
+                is_valid_input = user_answer.strip() and user_answer.replace('-', '').isdigit()
+                
+                with col1:
+                    button1_clicked = st.form_submit_button(
+                        button1_label, 
+                        disabled=not is_valid_input,
+                        type="primary" if button1_label.startswith("Submit") else "secondary"
+                    )
+                with col2:
+                    button2_clicked = st.form_submit_button(
+                        button2_label,
+                        disabled=not is_valid_input,
+                        type="primary" if button2_label.startswith("Submit") else "secondary"
+                    )
+                
+                # Handle form submission
+                if button1_clicked or button2_clicked:
+                    self._handle_captcha_submission(button1_clicked, button2_clicked, user_answer)
 
     def is_verified(self) -> bool:
         """Check if the CAPTCHA has been verified.
