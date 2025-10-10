@@ -1,5 +1,5 @@
 [project]
-name = "headshot-curator"
+name = "headshot-generator"
 version = "0.1.0"
 description = "Interactive headshot curator using OpenCV and Streamlit"
 readme = "README.md"
