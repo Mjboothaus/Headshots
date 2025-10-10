@@ -243,7 +243,6 @@ class HeadshotApp:
             self._process_current_image()
             
             logger.info(f"Sample image selected: {selected_sample['display_name']}")
-            st.success(f"✅ Loaded sample image: **{selected_sample['display_name']}**")
             
         except HeadshotGeneratorError as e:
             logger.error(f"Sample image selection error: {e}")

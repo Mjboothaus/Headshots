@@ -140,8 +140,9 @@ class SampleImageManager:
         
         st.markdown(f"**{title}**")
         
-        # Create options for selectbox
-        options = [''] + [img['display_name'] for img in sample_images]
+        # Create options for selectbox with placeholder
+        placeholder_text = "Choose a sample image..."
+        options = [placeholder_text] + [img['display_name'] for img in sample_images]
         
         selected_display_name = st.selectbox(
             "Choose a sample image:",
@@ -151,7 +152,7 @@ class SampleImageManager:
             key="sample_image_selector"
         )
         
-        if selected_display_name:
+        if selected_display_name and selected_display_name != placeholder_text:
             # Find the corresponding image info
             selected_image = next(
                 (img for img in sample_images if img['display_name'] == selected_display_name),

@@ -811,3 +811,156 @@
 2025-10-10 19:58:00 | INFO     | headshot_curator.ui.app:__init__:53 | HeadshotApp initialized successfully
 2025-10-10 19:58:00 | INFO     | headshot_curator.ui.app:run:100 | Starting application run
 2025-10-10 19:58:00 | INFO     | headshot_curator.utils.sample_images:get_sample_images:70 | Found 3 sample images
+2025-10-10 20:02:42 | INFO     | headshot_curator.utils.logger:setup_logger:52 | Logging initialized with level: INFO
+2025-10-10 20:02:42 | INFO     | headshot_curator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 20:02:42 | INFO     | headshot_curator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 20:02:42 | INFO     | headshot_curator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 20:02:42 | INFO     | headshot_curator.utils.sample_images:__init__:27 | SampleImageManager initialized with directory: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/images/samples
+2025-10-10 20:02:42 | INFO     | headshot_curator.models.session_state:__post_init__:91 | Session state initialized
+2025-10-10 20:02:42 | INFO     | headshot_curator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 20:02:42 | INFO     | headshot_curator.ui.app:run:100 | Starting application run
+2025-10-10 20:02:47 | INFO     | headshot_curator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 20:02:47 | INFO     | headshot_curator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 20:02:47 | INFO     | headshot_curator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 20:02:47 | INFO     | headshot_curator.utils.sample_images:__init__:27 | SampleImageManager initialized with directory: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/images/samples
+2025-10-10 20:02:47 | INFO     | headshot_curator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 20:02:47 | INFO     | headshot_curator.ui.app:run:100 | Starting application run
+2025-10-10 20:02:47 | INFO     | headshot_curator.captcha:_handle_captcha_submission:95 | CAPTCHA verification successful
+2025-10-10 20:02:47 | INFO     | headshot_curator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 20:02:47 | INFO     | headshot_curator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 20:02:47 | INFO     | headshot_curator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 20:02:47 | INFO     | headshot_curator.utils.sample_images:__init__:27 | SampleImageManager initialized with directory: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/images/samples
+2025-10-10 20:02:47 | INFO     | headshot_curator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 20:02:47 | INFO     | headshot_curator.ui.app:run:100 | Starting application run
+2025-10-10 20:02:47 | INFO     | headshot_curator.utils.sample_images:get_sample_images:70 | Found 3 sample images
+2025-10-10 20:02:56 | INFO     | headshot_curator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 20:02:56 | INFO     | headshot_curator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 20:02:56 | INFO     | headshot_curator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 20:02:56 | INFO     | headshot_curator.utils.sample_images:__init__:27 | SampleImageManager initialized with directory: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/images/samples
+2025-10-10 20:02:56 | INFO     | headshot_curator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 20:02:56 | INFO     | headshot_curator.ui.app:run:100 | Starting application run
+2025-10-10 20:02:56 | INFO     | headshot_curator.utils.sample_images:get_sample_images:70 | Found 3 sample images
+2025-10-10 20:03:02 | INFO     | headshot_curator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 20:03:02 | INFO     | headshot_curator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 20:03:02 | INFO     | headshot_curator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 20:03:02 | INFO     | headshot_curator.utils.sample_images:__init__:27 | SampleImageManager initialized with directory: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/images/samples
+2025-10-10 20:03:02 | INFO     | headshot_curator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 20:03:02 | INFO     | headshot_curator.ui.app:run:100 | Starting application run
+2025-10-10 20:03:02 | INFO     | headshot_curator.utils.sample_images:get_sample_images:70 | Found 3 sample images
+2025-10-10 20:03:02 | INFO     | headshot_curator.utils.sample_images:get_sample_images:70 | Found 3 sample images
+2025-10-10 20:03:02 | INFO     | headshot_curator.models.image_data:_optimize_image_for_memory:285 | Image size OK for memory: 427x640
+2025-10-10 20:03:02 | INFO     | headshot_curator.models.image_data:from_sample_image:156 | Successfully loaded sample image: Female Ai 02 (427x640)
+2025-10-10 20:03:02 | INFO     | headshot_curator.processing.headshot_processor:process_image:78 | Starting headshot processing
+2025-10-10 20:03:02 | INFO     | headshot_curator.processing.headshot_processor:process_image:116 | Detected 2 face(s), using face-based crop
+2025-10-10 20:03:02 | INFO     | headshot_curator.models.image_data:set_processed_image:196 | Processed image set: (400, 500)
+2025-10-10 20:03:02 | INFO     | headshot_curator.processing.headshot_processor:process_image:134 | Successfully processed headshot: (400, 500)
+2025-10-10 20:03:02 | INFO     | headshot_curator.ui.app:_process_current_image:393 | Image processed successfully and cached
+2025-10-10 20:03:02 | INFO     | headshot_curator.ui.app:_handle_sample_image_selection:245 | Sample image selected: Female Ai 02
+2025-10-10 20:03:15 | INFO     | headshot_curator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 20:03:15 | INFO     | headshot_curator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 20:03:15 | INFO     | headshot_curator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 20:03:15 | INFO     | headshot_curator.utils.sample_images:__init__:27 | SampleImageManager initialized with directory: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/images/samples
+2025-10-10 20:03:15 | INFO     | headshot_curator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 20:03:15 | INFO     | headshot_curator.ui.app:run:100 | Starting application run
+2025-10-10 20:03:15 | INFO     | headshot_curator.utils.sample_images:get_sample_images:70 | Found 3 sample images
+2025-10-10 20:03:15 | INFO     | headshot_curator.utils.sample_images:get_sample_images:70 | Found 3 sample images
+2025-10-10 20:03:15 | INFO     | headshot_curator.models.image_data:_optimize_image_for_memory:285 | Image size OK for memory: 427x640
+2025-10-10 20:03:15 | INFO     | headshot_curator.models.image_data:from_sample_image:156 | Successfully loaded sample image: Female Ai 01 (427x640)
+2025-10-10 20:03:15 | INFO     | headshot_curator.processing.headshot_processor:process_image:78 | Starting headshot processing
+2025-10-10 20:03:15 | INFO     | headshot_curator.processing.headshot_processor:process_image:116 | Detected 1 face(s), using face-based crop
+2025-10-10 20:03:15 | INFO     | headshot_curator.models.image_data:set_processed_image:196 | Processed image set: (400, 500)
+2025-10-10 20:03:15 | INFO     | headshot_curator.processing.headshot_processor:process_image:134 | Successfully processed headshot: (400, 500)
+2025-10-10 20:03:15 | INFO     | headshot_curator.ui.app:_process_current_image:393 | Image processed successfully and cached
+2025-10-10 20:03:15 | INFO     | headshot_curator.ui.app:_handle_sample_image_selection:245 | Sample image selected: Female Ai 01
+2025-10-10 20:06:16 | INFO     | headshot_curator.utils.logger:setup_logger:52 | Logging initialized with level: INFO
+2025-10-10 20:06:16 | INFO     | headshot_curator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 20:06:16 | INFO     | headshot_curator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 20:06:16 | INFO     | headshot_curator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 20:06:16 | INFO     | headshot_curator.utils.sample_images:__init__:27 | SampleImageManager initialized with directory: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/images/samples
+2025-10-10 20:06:16 | INFO     | headshot_curator.models.session_state:__post_init__:91 | Session state initialized
+2025-10-10 20:06:16 | INFO     | headshot_curator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 20:06:16 | INFO     | headshot_curator.ui.app:run:100 | Starting application run
+2025-10-10 20:06:20 | INFO     | headshot_curator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 20:06:20 | INFO     | headshot_curator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 20:06:20 | INFO     | headshot_curator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 20:06:20 | INFO     | headshot_curator.utils.sample_images:__init__:27 | SampleImageManager initialized with directory: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/images/samples
+2025-10-10 20:06:20 | INFO     | headshot_curator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 20:06:20 | INFO     | headshot_curator.ui.app:run:100 | Starting application run
+2025-10-10 20:06:20 | INFO     | headshot_curator.captcha:_handle_captcha_submission:95 | CAPTCHA verification successful
+2025-10-10 20:06:20 | INFO     | headshot_curator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 20:06:20 | INFO     | headshot_curator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 20:06:20 | INFO     | headshot_curator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 20:06:20 | INFO     | headshot_curator.utils.sample_images:__init__:27 | SampleImageManager initialized with directory: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/images/samples
+2025-10-10 20:06:20 | INFO     | headshot_curator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 20:06:20 | INFO     | headshot_curator.ui.app:run:100 | Starting application run
+2025-10-10 20:06:20 | INFO     | headshot_curator.utils.sample_images:get_sample_images:70 | Found 3 sample images
+2025-10-10 20:06:27 | INFO     | headshot_curator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 20:06:27 | INFO     | headshot_curator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 20:06:27 | INFO     | headshot_curator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 20:06:27 | INFO     | headshot_curator.utils.sample_images:__init__:27 | SampleImageManager initialized with directory: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/images/samples
+2025-10-10 20:06:27 | INFO     | headshot_curator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 20:06:27 | INFO     | headshot_curator.ui.app:run:100 | Starting application run
+2025-10-10 20:06:27 | INFO     | headshot_curator.utils.sample_images:get_sample_images:70 | Found 3 sample images
+2025-10-10 20:06:27 | INFO     | headshot_curator.utils.sample_images:get_sample_images:70 | Found 3 sample images
+2025-10-10 20:06:27 | INFO     | headshot_curator.models.image_data:_optimize_image_for_memory:285 | Image size OK for memory: 427x640
+2025-10-10 20:06:27 | INFO     | headshot_curator.models.image_data:from_sample_image:156 | Successfully loaded sample image: Male 01 Ai (427x640)
+2025-10-10 20:06:27 | INFO     | headshot_curator.processing.headshot_processor:process_image:78 | Starting headshot processing
+2025-10-10 20:06:27 | INFO     | headshot_curator.processing.headshot_processor:process_image:116 | Detected 1 face(s), using face-based crop
+2025-10-10 20:06:27 | INFO     | headshot_curator.models.image_data:set_processed_image:196 | Processed image set: (400, 500)
+2025-10-10 20:06:27 | INFO     | headshot_curator.processing.headshot_processor:process_image:134 | Successfully processed headshot: (400, 500)
+2025-10-10 20:06:27 | INFO     | headshot_curator.ui.app:_process_current_image:393 | Image processed successfully and cached
+2025-10-10 20:06:27 | INFO     | headshot_curator.ui.app:_handle_sample_image_selection:245 | Sample image selected: Male 01 Ai
+2025-10-10 20:09:29 | INFO     | headshot_curator.utils.logger:setup_logger:52 | Logging initialized with level: INFO
+2025-10-10 20:09:29 | INFO     | headshot_curator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 20:09:29 | INFO     | headshot_curator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 20:09:29 | INFO     | headshot_curator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 20:09:29 | INFO     | headshot_curator.utils.sample_images:__init__:27 | SampleImageManager initialized with directory: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/images/samples
+2025-10-10 20:09:29 | INFO     | headshot_curator.models.session_state:__post_init__:91 | Session state initialized
+2025-10-10 20:09:29 | INFO     | headshot_curator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 20:09:29 | INFO     | headshot_curator.ui.app:run:100 | Starting application run
+2025-10-10 20:09:33 | INFO     | headshot_curator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 20:09:33 | INFO     | headshot_curator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 20:09:33 | INFO     | headshot_curator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 20:09:33 | INFO     | headshot_curator.utils.sample_images:__init__:27 | SampleImageManager initialized with directory: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/images/samples
+2025-10-10 20:09:33 | INFO     | headshot_curator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 20:09:33 | INFO     | headshot_curator.ui.app:run:100 | Starting application run
+2025-10-10 20:09:33 | INFO     | headshot_curator.captcha:_handle_captcha_submission:95 | CAPTCHA verification successful
+2025-10-10 20:09:33 | INFO     | headshot_curator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 20:09:33 | INFO     | headshot_curator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 20:09:33 | INFO     | headshot_curator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 20:09:33 | INFO     | headshot_curator.utils.sample_images:__init__:27 | SampleImageManager initialized with directory: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/images/samples
+2025-10-10 20:09:33 | INFO     | headshot_curator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 20:09:33 | INFO     | headshot_curator.ui.app:run:100 | Starting application run
+2025-10-10 20:09:33 | INFO     | headshot_curator.utils.sample_images:get_sample_images:70 | Found 3 sample images
+2025-10-10 20:09:37 | INFO     | headshot_curator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 20:09:37 | INFO     | headshot_curator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 20:09:37 | INFO     | headshot_curator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 20:09:37 | INFO     | headshot_curator.utils.sample_images:__init__:27 | SampleImageManager initialized with directory: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/images/samples
+2025-10-10 20:09:37 | INFO     | headshot_curator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 20:09:37 | INFO     | headshot_curator.ui.app:run:100 | Starting application run
+2025-10-10 20:09:37 | INFO     | headshot_curator.utils.sample_images:get_sample_images:70 | Found 3 sample images
+2025-10-10 20:09:37 | INFO     | headshot_curator.utils.sample_images:get_sample_images:70 | Found 3 sample images
+2025-10-10 20:09:37 | INFO     | headshot_curator.models.image_data:_optimize_image_for_memory:285 | Image size OK for memory: 427x640
+2025-10-10 20:09:37 | INFO     | headshot_curator.models.image_data:from_sample_image:156 | Successfully loaded sample image: Female 01 Ai (427x640)
+2025-10-10 20:09:37 | INFO     | headshot_curator.processing.headshot_processor:process_image:78 | Starting headshot processing
+2025-10-10 20:09:37 | INFO     | headshot_curator.processing.headshot_processor:process_image:116 | Detected 1 face(s), using face-based crop
+2025-10-10 20:09:38 | INFO     | headshot_curator.models.image_data:set_processed_image:196 | Processed image set: (400, 500)
+2025-10-10 20:09:38 | INFO     | headshot_curator.processing.headshot_processor:process_image:134 | Successfully processed headshot: (400, 500)
+2025-10-10 20:09:38 | INFO     | headshot_curator.ui.app:_process_current_image:392 | Image processed successfully and cached
+2025-10-10 20:09:38 | INFO     | headshot_curator.ui.app:_handle_sample_image_selection:245 | Sample image selected: Female 01 Ai
+2025-10-10 20:10:00 | INFO     | headshot_curator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 20:10:00 | INFO     | headshot_curator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 20:10:00 | INFO     | headshot_curator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 20:10:00 | INFO     | headshot_curator.utils.sample_images:__init__:27 | SampleImageManager initialized with directory: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/images/samples
+2025-10-10 20:10:00 | INFO     | headshot_curator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 20:10:00 | INFO     | headshot_curator.ui.app:run:100 | Starting application run
+2025-10-10 20:10:00 | INFO     | headshot_curator.utils.sample_images:get_sample_images:70 | Found 3 sample images
+2025-10-10 20:10:00 | INFO     | headshot_curator.utils.sample_images:get_sample_images:70 | Found 3 sample images
+2025-10-10 20:10:00 | INFO     | headshot_curator.models.image_data:_optimize_image_for_memory:285 | Image size OK for memory: 427x640
+2025-10-10 20:10:00 | INFO     | headshot_curator.models.image_data:from_sample_image:156 | Successfully loaded sample image: Female 02 Ai (427x640)
+2025-10-10 20:10:00 | INFO     | headshot_curator.processing.headshot_processor:process_image:78 | Starting headshot processing
+2025-10-10 20:10:00 | INFO     | headshot_curator.processing.headshot_processor:process_image:116 | Detected 2 face(s), using face-based crop
+2025-10-10 20:10:00 | INFO     | headshot_curator.models.image_data:set_processed_image:196 | Processed image set: (400, 500)
+2025-10-10 20:10:00 | INFO     | headshot_curator.processing.headshot_processor:process_image:134 | Successfully processed headshot: (400, 500)
+2025-10-10 20:10:00 | INFO     | headshot_curator.ui.app:_process_current_image:392 | Image processed successfully and cached
+2025-10-10 20:10:00 | INFO     | headshot_curator.ui.app:_handle_sample_image_selection:245 | Sample image selected: Female 02 Ai
