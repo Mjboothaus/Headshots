@@ -57,6 +57,10 @@ logs/*
 .pytest_cache/
 test_presets.py
 
+# Images - exclude all except samples
+images/*
+!images/samples/
+
 # Documentation
 *.md
 !instructions.md
