@@ -212,10 +212,10 @@ optimize = true
 # UI CONFIGURATION
 # =============================================================================
 [ui]
-app_title = "Headshot Creator"
-app_description = "Upload an image and adjust settings to generate a headshot with real-time preview."
-page_title = "Headshot Creator"
+app_title = "Headshot Curator"
+page_title = "Headshot Curator"
 page_icon = "📸"
+app_description = "Upload an image and adjust settings to curate a professional headshot with real-time preview."
 max_file_size_warning_mb = 5.0
 default_filename_template = "headshot_{preset}{grayscale_suffix}{extension}"
 
@@ -258,7 +258,7 @@ Zoom = "◊ Zoom"
 enabled = true
 max_attempts = 2
 title = "🤖 Please verify you're not a bot"
-description = "🔒 Please complete the verification below to access the headshot generator."
+description = "🔒 Please complete the verification below to access the headshot curator."
 skip_button_text = "🎲 Skip and Choose Another"
 verification_success = "✅ Verification successful! You can now use the app."
 

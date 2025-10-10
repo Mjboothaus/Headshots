@@ -1,7 +1,7 @@
 [project]
-name = "headshot-generator"
+name = "headshot-curator"
 version = "0.1.0"
-description = "Interactive headshot generator using OpenCV and Streamlit"
+description = "Interactive headshot curator using OpenCV and Streamlit"
 readme = "README.md"
 authors = [
     { name = "Michael Booth", email = "michael@databooth.com.au" }

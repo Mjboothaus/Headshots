@@ -99,16 +99,16 @@ class HeadshotApp:
             
             # Check CAPTCHA verification first (if enabled)
             if self.captcha and not self.captcha.is_verified():
+                # Show minimal header during CAPTCHA
                 app_title = self.config_manager.get_ui_config('app_title') or "Headshot Creator"
-                description = self.config_manager.get_ui_config('captcha.description') or "🔒 Please complete the verification below to access the headshot generator."
-                captcha_title = self.config_manager.get_ui_config('captcha.title') or "🤖 Please verify you're not a bot"
-                
                 st.markdown(f"# {app_title}")
-                st.write(description)
-                self.captcha.display_captcha(captcha_title)
+                st.markdown("🔒 Please complete the verification below to access the headshot curator.")
+                
+                # Display CAPTCHA form
+                self.captcha.display_captcha()
                 return
             
-            # Main page header - use config values (only shown after CAPTCHA)
+            # Main application interface (only shown after CAPTCHA verification)
             app_title = self.config_manager.get_ui_config('app_title') or "Headshot Creator"
             app_description = self.config_manager.get_ui_config('app_description') or "Upload an image and adjust settings to generate a headshot with real-time preview."
             

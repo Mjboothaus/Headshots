@@ -1,4 +1,4 @@
-# Headshot Creator
+# Headshot Curator
 
 A professional Streamlit application that transforms portrait photos into polished headshots using advanced OpenCV face detection and PIL image processing. The app features a modular architecture with intelligent caching, CAPTCHA verification, and extensive customisation options.
 
