@@ -17,6 +17,7 @@ from ..models.image_data import ImageData
 from ..models.session_state import SessionState, ProcessingParameters
 from ..processing.headshot_processor import HeadshotProcessor
 from ..captcha import StreamlitCaptcha
+from ..utils.sample_images import SampleImageManager
 from .sidebar import Sidebar
 
 # Initialize logging
@@ -36,6 +37,7 @@ class HeadshotApp:
             self.config_manager = ConfigManager()
             self.processor = HeadshotProcessor()
             self.sidebar = Sidebar(self.config_manager)
+            self.sample_manager = SampleImageManager(self.config_manager)
             
             # Initialize session state
             self._initialize_session_state()
@@ -145,33 +147,43 @@ class HeadshotApp:
         col1, col2 = st.columns(PROFILE_COLUMN_RATIO)
         
         with col1:
-            file_upload_label = self.config_manager.get_ui_config('labels.file_upload') or "Choose an image to get started"
-            file_upload_help = self.config_manager.get_ui_config('labels.file_upload_help') or "Upload a PNG or JPG image to process into a headshot."
+            # Create tabs for upload options
+            upload_tab, sample_tab = st.tabs(["📁 Upload Image", "🤖 Sample Images"])
             
-            uploaded_file = st.file_uploader(
-                file_upload_label,
-                type=["png", "jpg", "jpeg"],
-                help=file_upload_help
-            )
-            
-            # Handle file upload
-            if uploaded_file is not None:
-                # Show temporary file size warning for large files
-                if hasattr(uploaded_file, 'size') and uploaded_file.size:
-                    file_size_mb = uploaded_file.size / (1024 * 1024)
-                    max_size_mb = self.config_manager.get_ui_config('max_file_size_warning_mb') or 5.0
-                    
-                    if file_size_mb > max_size_mb:
-                        warning_template = self.config_manager.get_ui_config('labels.file_size_warning') or "⚠️ Large file detected: {size:.1f}MB. Image will be automatically optimised for better performance."
-                        warning_placeholder = st.empty()
-                        warning_placeholder.warning(warning_template.format(size=file_size_mb))
-                        
-                        # Clear warning after 3 seconds
-                        import time
-                        time.sleep(3)
-                        warning_placeholder.empty()
+            with upload_tab:
+                file_upload_label = self.config_manager.get_ui_config('labels.file_upload') or "Choose an image to get started"
+                file_upload_help = self.config_manager.get_ui_config('labels.file_upload_help') or "Upload a PNG or JPG image to process into a headshot."
                 
-                self._handle_file_upload(uploaded_file)
+                uploaded_file = st.file_uploader(
+                    file_upload_label,
+                    type=["png", "jpg", "jpeg"],
+                    help=file_upload_help
+                )
+                
+                # Handle file upload
+                if uploaded_file is not None:
+                    # Show temporary file size warning for large files
+                    if hasattr(uploaded_file, 'size') and uploaded_file.size:
+                        file_size_mb = uploaded_file.size / (1024 * 1024)
+                        max_size_mb = self.config_manager.get_ui_config('max_file_size_warning_mb') or 5.0
+                        
+                        if file_size_mb > max_size_mb:
+                            warning_template = self.config_manager.get_ui_config('labels.file_size_warning') or "⚠️ Large file detected: {size:.1f}MB. Image will be automatically optimised for better performance."
+                            warning_placeholder = st.empty()
+                            warning_placeholder.warning(warning_template.format(size=file_size_mb))
+                            
+                            # Clear warning after 3 seconds
+                            import time
+                            time.sleep(3)
+                            warning_placeholder.empty()
+                    
+                    self._handle_file_upload(uploaded_file)
+            
+            with sample_tab:
+                # Render sample image selector
+                selected_sample_path = self.sample_manager.render_sample_selector()
+                if selected_sample_path:
+                    self._handle_sample_image_selection(selected_sample_path)
         
         with col2:
             profile_label = self.config_manager.get_ui_config('labels.profile_selector') or "Profile:"
@@ -199,6 +211,48 @@ class HeadshotApp:
         except Exception as e:
             logger.error(f"Unexpected upload error: {e}")
             st.error("Failed to process the uploaded file. Please try again.")
+    
+    def _handle_sample_image_selection(self, sample_path: str) -> None:
+        """Handle sample image selection.
+        
+        Args:
+            sample_path: Path to the selected sample image
+        """
+        try:
+            # Get sample images to find display name
+            sample_images = self.sample_manager.get_sample_images()
+            selected_sample = next(
+                (img for img in sample_images if img['path'] == sample_path),
+                None
+            )
+            
+            if not selected_sample:
+                st.error("Selected sample image not found.")
+                return
+            
+            # Create new ImageData from sample
+            new_image_data = ImageData.from_sample_image(
+                sample_path, 
+                selected_sample['display_name']
+            )
+            
+            # Update session state
+            st.session_state.image_data = new_image_data
+            
+            # Process the image immediately with current settings
+            self._process_current_image()
+            
+            logger.info(f"Sample image selected: {selected_sample['display_name']}")
+            st.success(f"✅ Loaded sample image: **{selected_sample['display_name']}**")
+            
+        except HeadshotGeneratorError as e:
+            logger.error(f"Sample image selection error: {e}")
+            st.error(e.user_message)
+            st.session_state.app_state.set_error(str(e))
+        except Exception as e:
+            logger.error(f"Unexpected sample image selection error: {e}")
+            st.error("An unexpected error occurred while loading the sample image. Please try again.")
+            st.session_state.app_state.set_error(str(e))
     
     def _render_profile_selector(self) -> None:
         """Render the profile selection using dropdown with alphabetized options."""
@@ -367,7 +421,7 @@ class HeadshotApp:
                 st.image(
                     display_image,
                     caption=original_caption,
-                    use_container_width=True  # Updated from deprecated use_column_width
+                    width="stretch"  # Updated from deprecated use_container_width
                 )
             else:
                 st.info(upload_prompt)
@@ -382,7 +436,7 @@ class HeadshotApp:
                 st.image(
                     display_image,
                     caption=processed_caption,
-                    use_container_width=True  # Updated from deprecated use_column_width
+                    width="stretch"  # Updated from deprecated use_container_width
                 )
             else:
                 st.info(processed_prompt)
@@ -717,7 +771,7 @@ class HeadshotApp:
                 file_name=filename,
                 mime=format_info["mime"],
                 help=f"Download the processed headshot as {format_info['format']} format (filename: {filename})",
-                use_container_width=True
+                width="stretch"
             )
             
         except Exception as e:

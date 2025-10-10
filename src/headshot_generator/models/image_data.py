@@ -28,6 +28,9 @@ class ImageData:
     processing_params: Dict[str, Any] = field(default_factory=dict)
     upload_time: Optional[datetime.datetime] = None
     processing_time: Optional[datetime.datetime] = None
+    # Sample image fields
+    is_sample: bool = False
+    sample_display_name: Optional[str] = None
     
     def __post_init__(self):
         """Initialize metadata after dataclass creation."""
@@ -114,6 +117,65 @@ class ImageData:
                 "Unable to process the uploaded image. Please try a different image."
             )
     
+    @classmethod
+    def from_sample_image(cls, image_path: str, display_name: str) -> 'ImageData':
+        """
+        Create ImageData from a sample image file.
+        
+        Args:
+            image_path: Path to the sample image file
+            display_name: User-friendly display name for the image
+            
+        Returns:
+            ImageData instance
+            
+        Raises:
+            ValidationError: If file validation fails
+            ImageProcessingError: If image processing fails
+        """
+        try:
+            image_path = Path(image_path)
+            
+            if not image_path.exists():
+                raise ValidationError(
+                    f"Sample image not found: {image_path}",
+                    "The selected sample image is not available."
+                )
+            
+            # Load and validate image
+            image = Image.open(image_path).convert("RGB")
+            
+            # Validate image dimensions
+            width, height = image.size
+            if width < 100 or height < 100:
+                logger.warning(f"Sample image is quite small: {width}x{height}")
+            
+            # Memory optimization: Resize large images for cloud deployment
+            image = cls._optimize_image_for_memory(image)
+            
+            logger.info(f"Successfully loaded sample image: {display_name} ({width}x{height})")
+            
+            return cls(
+                original_image=image,
+                filename=f"sample_{image_path.name}",
+                file_size=image_path.stat().st_size,
+                original_dimensions=(width, height),
+                format=image_path.suffix.upper().lstrip('.'),
+                upload_time=datetime.datetime.now(),
+                is_sample=True,
+                sample_display_name=display_name
+            )
+            
+        except Exception as e:
+            if isinstance(e, (ValidationError, ImageProcessingError)):
+                raise
+            
+            logger.error(f"Failed to process sample image {image_path}: {e}")
+            raise ImageProcessingError(
+                f"Failed to process sample image: {e}",
+                "Unable to process the selected sample image. Please try a different one."
+            )
+    
     def set_processed_image(
         self, 
         processed_image: Image.Image, 
@@ -198,6 +260,8 @@ class ImageData:
         self.processing_params = {}
         self.upload_time = None
         self.processing_time = None
+        self.is_sample = False
+        self.sample_display_name = None
         
         logger.info("Image data cleared")
     

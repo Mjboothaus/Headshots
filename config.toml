@@ -219,6 +219,15 @@ app_description = "Upload an image and adjust settings to curate a professional 
 max_file_size_warning_mb = 5.0
 default_filename_template = "headshot_{preset}{grayscale_suffix}{extension}"
 
+# Sample Images Configuration
+[ui.sample_images]
+enabled = true
+directory = "images/samples"
+title = "🤖 Try Sample Images"
+help = "Test the app with AI-generated sample images before uploading your own"
+no_images_message = "No sample images found. Please add images to the samples directory."
+disclaimer = "⚠️ Note: Sample images are AI-generated, not real people"
+
 # Labels and text
 [ui.labels]
 profile_selector = "Profile:"

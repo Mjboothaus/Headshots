@@ -140,7 +140,7 @@ class StreamlitCaptcha:
                 remaining_skips = self.max_attempts - st.session_state.captcha_attempts
                 if remaining_skips > 0:
                     skip_button_label = f"🎲 Skip and Get New Problem ({remaining_skips} remaining)"
-                    if st.button(skip_button_label, type="secondary", use_container_width=True):
+                    if st.button(skip_button_label, type="secondary", width="stretch"):
                         st.session_state.captcha_attempts += 1
                         self._generate_captcha()
                         logger.info(f"CAPTCHA skipped, attempts: {st.session_state.captcha_attempts}/{self.max_attempts}")
@@ -176,14 +176,14 @@ class StreamlitCaptcha:
                         button1_clicked = st.form_submit_button(
                             button1_label,
                             type="primary" if "Submit" in button1_label else "secondary",
-                            use_container_width=True
+                            width="stretch"
                         )
                     
                     with button_col2:
                         button2_clicked = st.form_submit_button(
                             button2_label,
                             type="primary" if "Submit" in button2_label else "secondary", 
-                            use_container_width=True
+                            width="stretch"
                         )
                     
                     # Handle form submission

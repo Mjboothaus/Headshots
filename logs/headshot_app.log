@@ -399,3 +399,305 @@
 2025-10-08 17:18:59 | INFO     | headshot_generator.models.session_state:set_preset:145 | Selected preset: Custom
 2025-10-08 17:18:59 | INFO     | headshot_generator.models.session_state:apply_custom_preset:163 | Applied saved custom parameters
 2025-10-10 09:54:33 | INFO     | src.headshot_generator.utils.logger:setup_logger:52 | Logging initialized with level: INFO
+2025-10-10 18:34:56 | INFO     | src.headshot_generator.utils.logger:setup_logger:52 | Logging initialized with level: INFO
+2025-10-10 18:45:25 | INFO     | headshot_generator.utils.logger:setup_logger:52 | Logging initialized with level: INFO
+2025-10-10 18:45:25 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 18:45:25 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 18:45:25 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 18:45:25 | INFO     | headshot_generator.models.session_state:__post_init__:91 | Session state initialized
+2025-10-10 18:45:25 | INFO     | headshot_generator.ui.app:__init__:51 | HeadshotApp initialized successfully
+2025-10-10 18:45:25 | INFO     | headshot_generator.ui.app:run:98 | Starting application run
+2025-10-10 18:45:33 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 18:45:33 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 18:45:33 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 18:45:33 | INFO     | headshot_generator.ui.app:__init__:51 | HeadshotApp initialized successfully
+2025-10-10 18:45:33 | INFO     | headshot_generator.ui.app:run:98 | Starting application run
+2025-10-10 18:45:33 | INFO     | headshot_generator.captcha:display_captcha:147 | CAPTCHA skipped, attempts: 1/2
+2025-10-10 18:45:33 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 18:45:33 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 18:45:33 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 18:45:33 | INFO     | headshot_generator.ui.app:__init__:51 | HeadshotApp initialized successfully
+2025-10-10 18:45:33 | INFO     | headshot_generator.ui.app:run:98 | Starting application run
+2025-10-10 18:48:48 | INFO     | headshot_generator.utils.logger:setup_logger:52 | Logging initialized with level: INFO
+2025-10-10 18:48:48 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 18:48:48 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 18:48:48 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 18:48:48 | INFO     | headshot_generator.models.session_state:__post_init__:91 | Session state initialized
+2025-10-10 18:48:48 | INFO     | headshot_generator.ui.app:__init__:51 | HeadshotApp initialized successfully
+2025-10-10 18:48:48 | INFO     | headshot_generator.ui.app:run:98 | Starting application run
+2025-10-10 18:49:08 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 18:49:08 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 18:49:08 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 18:49:08 | INFO     | headshot_generator.ui.app:__init__:51 | HeadshotApp initialized successfully
+2025-10-10 18:49:08 | INFO     | headshot_generator.ui.app:run:98 | Starting application run
+2025-10-10 18:49:08 | INFO     | headshot_generator.captcha:display_captcha:146 | CAPTCHA skipped, attempts: 1/2
+2025-10-10 18:49:08 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 18:49:08 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 18:49:08 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 18:49:08 | INFO     | headshot_generator.ui.app:__init__:51 | HeadshotApp initialized successfully
+2025-10-10 18:49:08 | INFO     | headshot_generator.ui.app:run:98 | Starting application run
+2025-10-10 18:49:12 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 18:49:12 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 18:49:12 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 18:49:12 | INFO     | headshot_generator.ui.app:__init__:51 | HeadshotApp initialized successfully
+2025-10-10 18:49:12 | INFO     | headshot_generator.ui.app:run:98 | Starting application run
+2025-10-10 18:49:12 | INFO     | headshot_generator.captcha:display_captcha:146 | CAPTCHA skipped, attempts: 2/2
+2025-10-10 18:49:12 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 18:49:12 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 18:49:12 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 18:49:12 | INFO     | headshot_generator.ui.app:__init__:51 | HeadshotApp initialized successfully
+2025-10-10 18:49:12 | INFO     | headshot_generator.ui.app:run:98 | Starting application run
+2025-10-10 18:49:22 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 18:49:22 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 18:49:22 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 18:49:22 | INFO     | headshot_generator.ui.app:__init__:51 | HeadshotApp initialized successfully
+2025-10-10 18:49:22 | INFO     | headshot_generator.ui.app:run:98 | Starting application run
+2025-10-10 18:49:22 | INFO     | headshot_generator.captcha:_handle_captcha_submission:95 | CAPTCHA verification successful
+2025-10-10 18:49:22 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 18:49:22 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 18:49:22 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 18:49:22 | INFO     | headshot_generator.ui.app:__init__:51 | HeadshotApp initialized successfully
+2025-10-10 18:49:22 | INFO     | headshot_generator.ui.app:run:98 | Starting application run
+2025-10-10 18:53:29 | INFO     | headshot_generator.utils.logger:setup_logger:52 | Logging initialized with level: INFO
+2025-10-10 18:53:29 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 18:53:29 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 18:53:29 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 18:53:29 | INFO     | headshot_generator.models.session_state:__post_init__:91 | Session state initialized
+2025-10-10 18:53:29 | INFO     | headshot_generator.ui.app:__init__:51 | HeadshotApp initialized successfully
+2025-10-10 18:53:29 | INFO     | headshot_generator.ui.app:run:98 | Starting application run
+2025-10-10 18:53:33 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 18:53:33 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 18:53:33 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 18:53:33 | INFO     | headshot_generator.ui.app:__init__:51 | HeadshotApp initialized successfully
+2025-10-10 18:53:33 | INFO     | headshot_generator.ui.app:run:98 | Starting application run
+2025-10-10 18:53:33 | INFO     | headshot_generator.captcha:_handle_failed_attempt:110 | CAPTCHA attempt failed, attempts: 1/2
+2025-10-10 18:53:33 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 18:53:33 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 18:53:33 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 18:53:33 | INFO     | headshot_generator.ui.app:__init__:51 | HeadshotApp initialized successfully
+2025-10-10 18:53:33 | INFO     | headshot_generator.ui.app:run:98 | Starting application run
+2025-10-10 18:53:44 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 18:53:44 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 18:53:44 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 18:53:44 | INFO     | headshot_generator.ui.app:__init__:51 | HeadshotApp initialized successfully
+2025-10-10 18:53:44 | INFO     | headshot_generator.ui.app:run:98 | Starting application run
+2025-10-10 18:53:44 | INFO     | headshot_generator.captcha:_handle_failed_attempt:110 | CAPTCHA attempt failed, attempts: 2/2
+2025-10-10 18:53:44 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 18:53:44 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 18:53:44 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 18:53:44 | INFO     | headshot_generator.ui.app:__init__:51 | HeadshotApp initialized successfully
+2025-10-10 18:53:44 | INFO     | headshot_generator.ui.app:run:98 | Starting application run
+2025-10-10 18:53:56 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 18:53:56 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 18:53:56 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 18:53:56 | INFO     | headshot_generator.ui.app:__init__:51 | HeadshotApp initialized successfully
+2025-10-10 18:53:56 | INFO     | headshot_generator.ui.app:run:98 | Starting application run
+2025-10-10 18:53:56 | INFO     | headshot_generator.captcha:_handle_captcha_submission:95 | CAPTCHA verification successful
+2025-10-10 18:53:56 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 18:53:56 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 18:53:56 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 18:53:56 | INFO     | headshot_generator.ui.app:__init__:51 | HeadshotApp initialized successfully
+2025-10-10 18:53:56 | INFO     | headshot_generator.ui.app:run:98 | Starting application run
+2025-10-10 19:05:33 | INFO     | headshot_generator.utils.logger:setup_logger:52 | Logging initialized with level: INFO
+2025-10-10 19:05:33 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 19:05:33 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 19:05:33 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 19:05:33 | ERROR    | headshot_generator.ui.app:__init__:56 | Failed to initialize HeadshotApp: ConfigManager.get_ui_config() takes from 1 to 2 positional arguments but 3 were given
+2025-10-10 19:06:30 | INFO     | headshot_generator.utils.logger:setup_logger:52 | Logging initialized with level: INFO
+2025-10-10 19:06:30 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 19:06:30 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 19:06:30 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 19:06:30 | INFO     | headshot_generator.models.session_state:__post_init__:91 | Session state initialized
+2025-10-10 19:06:30 | INFO     | headshot_generator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 19:06:30 | INFO     | headshot_generator.ui.app:run:100 | Starting application run
+2025-10-10 19:06:39 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 19:06:39 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 19:06:39 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 19:06:39 | INFO     | headshot_generator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 19:06:39 | INFO     | headshot_generator.ui.app:run:100 | Starting application run
+2025-10-10 19:06:39 | INFO     | headshot_generator.captcha:_handle_failed_attempt:110 | CAPTCHA attempt failed, attempts: 1/2
+2025-10-10 19:06:39 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 19:06:39 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 19:06:39 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 19:06:39 | INFO     | headshot_generator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 19:06:39 | INFO     | headshot_generator.ui.app:run:100 | Starting application run
+2025-10-10 19:06:44 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 19:06:44 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 19:06:44 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 19:06:44 | INFO     | headshot_generator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 19:06:44 | INFO     | headshot_generator.ui.app:run:100 | Starting application run
+2025-10-10 19:06:44 | INFO     | headshot_generator.captcha:_handle_captcha_submission:95 | CAPTCHA verification successful
+2025-10-10 19:06:44 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 19:06:44 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 19:06:44 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 19:06:44 | INFO     | headshot_generator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 19:06:44 | INFO     | headshot_generator.ui.app:run:100 | Starting application run
+2025-10-10 19:06:44 | INFO     | headshot_generator.utils.sample_images:get_sample_images:64 | Found 3 sample images
+2025-10-10 19:06:59 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 19:06:59 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 19:06:59 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 19:06:59 | INFO     | headshot_generator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 19:06:59 | INFO     | headshot_generator.ui.app:run:100 | Starting application run
+2025-10-10 19:06:59 | INFO     | headshot_generator.utils.sample_images:get_sample_images:64 | Found 3 sample images
+2025-10-10 19:06:59 | INFO     | headshot_generator.utils.sample_images:get_sample_images:64 | Found 3 sample images
+2025-10-10 19:06:59 | INFO     | headshot_generator.models.image_data:_optimize_image_for_memory:285 | Image size OK for memory: 427x640
+2025-10-10 19:06:59 | INFO     | headshot_generator.models.image_data:from_sample_image:156 | Successfully loaded sample image: Img 3118 (427x640)
+2025-10-10 19:06:59 | INFO     | headshot_generator.processing.headshot_processor:process_image:78 | Starting headshot processing
+2025-10-10 19:06:59 | INFO     | headshot_generator.processing.headshot_processor:process_image:116 | Detected 1 face(s), using face-based crop
+2025-10-10 19:06:59 | INFO     | headshot_generator.models.image_data:set_processed_image:196 | Processed image set: (400, 500)
+2025-10-10 19:06:59 | INFO     | headshot_generator.processing.headshot_processor:process_image:134 | Successfully processed headshot: (400, 500)
+2025-10-10 19:06:59 | INFO     | headshot_generator.ui.app:_process_current_image:393 | Image processed successfully and cached
+2025-10-10 19:06:59 | INFO     | headshot_generator.ui.app:_handle_sample_image_selection:245 | Sample image selected: Img 3118
+2025-10-10 19:07:11 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 19:07:11 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 19:07:11 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 19:07:11 | INFO     | headshot_generator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 19:07:11 | INFO     | headshot_generator.ui.app:run:100 | Starting application run
+2025-10-10 19:07:11 | INFO     | headshot_generator.utils.sample_images:get_sample_images:64 | Found 3 sample images
+2025-10-10 19:07:11 | INFO     | headshot_generator.utils.sample_images:get_sample_images:64 | Found 3 sample images
+2025-10-10 19:07:11 | INFO     | headshot_generator.models.image_data:_optimize_image_for_memory:285 | Image size OK for memory: 427x640
+2025-10-10 19:07:11 | INFO     | headshot_generator.models.image_data:from_sample_image:156 | Successfully loaded sample image: Img 3119 (427x640)
+2025-10-10 19:07:11 | INFO     | headshot_generator.processing.headshot_processor:process_image:78 | Starting headshot processing
+2025-10-10 19:07:11 | INFO     | headshot_generator.processing.headshot_processor:process_image:116 | Detected 1 face(s), using face-based crop
+2025-10-10 19:07:11 | INFO     | headshot_generator.models.image_data:set_processed_image:196 | Processed image set: (400, 500)
+2025-10-10 19:07:11 | INFO     | headshot_generator.processing.headshot_processor:process_image:134 | Successfully processed headshot: (400, 500)
+2025-10-10 19:07:11 | INFO     | headshot_generator.ui.app:_process_current_image:393 | Image processed successfully and cached
+2025-10-10 19:07:11 | INFO     | headshot_generator.ui.app:_handle_sample_image_selection:245 | Sample image selected: Img 3119
+2025-10-10 19:07:23 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 19:07:23 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 19:07:23 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 19:07:23 | INFO     | headshot_generator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 19:07:23 | INFO     | headshot_generator.ui.app:run:100 | Starting application run
+2025-10-10 19:07:23 | INFO     | headshot_generator.utils.sample_images:get_sample_images:64 | Found 3 sample images
+2025-10-10 19:07:23 | INFO     | headshot_generator.utils.sample_images:get_sample_images:64 | Found 3 sample images
+2025-10-10 19:07:23 | INFO     | headshot_generator.models.image_data:_optimize_image_for_memory:285 | Image size OK for memory: 427x640
+2025-10-10 19:07:23 | INFO     | headshot_generator.models.image_data:from_sample_image:156 | Successfully loaded sample image: Img 3119 (427x640)
+2025-10-10 19:07:23 | INFO     | headshot_generator.processing.headshot_processor:process_image:78 | Starting headshot processing
+2025-10-10 19:07:23 | INFO     | headshot_generator.processing.headshot_processor:process_image:116 | Detected 1 face(s), using face-based crop
+2025-10-10 19:07:23 | INFO     | headshot_generator.models.image_data:set_processed_image:196 | Processed image set: (400, 500)
+2025-10-10 19:07:23 | INFO     | headshot_generator.processing.headshot_processor:process_image:134 | Successfully processed headshot: (400, 500)
+2025-10-10 19:07:23 | INFO     | headshot_generator.ui.app:_process_current_image:393 | Image processed successfully and cached
+2025-10-10 19:07:23 | INFO     | headshot_generator.ui.app:_handle_sample_image_selection:245 | Sample image selected: Img 3119
+2025-10-10 19:07:23 | INFO     | headshot_generator.models.session_state:set_preset:149 | Selected preset: Linkedin
+2025-10-10 19:07:23 | INFO     | headshot_generator.models.session_state:apply_preset:117 | Applied preset configuration: {'target_width': 400, 'target_height': 400, 'padding_top': 0.3, 'padding_bottom': 0.3, 'padding_side': 0.2, 'border_color': '#F3F2EF', 'shift_x': 0, 'shift_y': 0, 'zoom_out_factor': 1.2}
+2025-10-10 19:07:23 | INFO     | headshot_generator.processing.headshot_processor:process_image:78 | Starting headshot processing
+2025-10-10 19:07:23 | INFO     | headshot_generator.processing.headshot_processor:process_image:116 | Detected 1 face(s), using face-based crop
+2025-10-10 19:07:23 | INFO     | headshot_generator.models.image_data:set_processed_image:196 | Processed image set: (400, 400)
+2025-10-10 19:07:23 | INFO     | headshot_generator.processing.headshot_processor:process_image:134 | Successfully processed headshot: (400, 400)
+2025-10-10 19:07:23 | INFO     | headshot_generator.ui.app:_process_current_image:393 | Image processed successfully and cached
+2025-10-10 19:07:23 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 19:07:23 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 19:07:23 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 19:07:23 | INFO     | headshot_generator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 19:07:23 | INFO     | headshot_generator.ui.app:run:100 | Starting application run
+2025-10-10 19:07:23 | INFO     | headshot_generator.utils.sample_images:get_sample_images:64 | Found 3 sample images
+2025-10-10 19:07:23 | INFO     | headshot_generator.utils.sample_images:get_sample_images:64 | Found 3 sample images
+2025-10-10 19:07:23 | INFO     | headshot_generator.models.image_data:_optimize_image_for_memory:285 | Image size OK for memory: 427x640
+2025-10-10 19:07:23 | INFO     | headshot_generator.models.image_data:from_sample_image:156 | Successfully loaded sample image: Img 3119 (427x640)
+2025-10-10 19:07:23 | INFO     | headshot_generator.processing.headshot_processor:process_image:78 | Starting headshot processing
+2025-10-10 19:07:23 | INFO     | headshot_generator.processing.headshot_processor:process_image:116 | Detected 1 face(s), using face-based crop
+2025-10-10 19:07:23 | INFO     | headshot_generator.models.image_data:set_processed_image:196 | Processed image set: (400, 400)
+2025-10-10 19:07:23 | INFO     | headshot_generator.processing.headshot_processor:process_image:134 | Successfully processed headshot: (400, 400)
+2025-10-10 19:07:23 | INFO     | headshot_generator.ui.app:_process_current_image:393 | Image processed successfully and cached
+2025-10-10 19:07:23 | INFO     | headshot_generator.ui.app:_handle_sample_image_selection:245 | Sample image selected: Img 3119
+2025-10-10 19:07:34 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 19:07:34 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 19:07:35 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 19:07:35 | INFO     | headshot_generator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 19:07:35 | INFO     | headshot_generator.ui.app:run:100 | Starting application run
+2025-10-10 19:07:35 | INFO     | headshot_generator.utils.sample_images:get_sample_images:64 | Found 3 sample images
+2025-10-10 19:07:35 | INFO     | headshot_generator.utils.sample_images:get_sample_images:64 | Found 3 sample images
+2025-10-10 19:07:35 | INFO     | headshot_generator.models.image_data:_optimize_image_for_memory:285 | Image size OK for memory: 427x640
+2025-10-10 19:07:35 | INFO     | headshot_generator.models.image_data:from_sample_image:156 | Successfully loaded sample image: Img 3120 (427x640)
+2025-10-10 19:07:35 | INFO     | headshot_generator.processing.headshot_processor:process_image:78 | Starting headshot processing
+2025-10-10 19:07:35 | INFO     | headshot_generator.processing.headshot_processor:process_image:116 | Detected 2 face(s), using face-based crop
+2025-10-10 19:07:35 | INFO     | headshot_generator.models.image_data:set_processed_image:196 | Processed image set: (400, 400)
+2025-10-10 19:07:35 | INFO     | headshot_generator.processing.headshot_processor:process_image:134 | Successfully processed headshot: (400, 400)
+2025-10-10 19:07:35 | INFO     | headshot_generator.ui.app:_process_current_image:393 | Image processed successfully and cached
+2025-10-10 19:07:35 | INFO     | headshot_generator.ui.app:_handle_sample_image_selection:245 | Sample image selected: Img 3120
+2025-10-10 19:10:16 | INFO     | headshot_generator.utils.logger:setup_logger:52 | Logging initialized with level: INFO
+2025-10-10 19:10:16 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 19:10:16 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 19:10:16 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 19:10:16 | INFO     | headshot_generator.models.session_state:__post_init__:91 | Session state initialized
+2025-10-10 19:10:16 | INFO     | headshot_generator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 19:10:16 | INFO     | headshot_generator.ui.app:run:100 | Starting application run
+2025-10-10 19:10:22 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 19:10:22 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 19:10:22 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 19:10:22 | INFO     | headshot_generator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 19:10:22 | INFO     | headshot_generator.ui.app:run:100 | Starting application run
+2025-10-10 19:10:22 | INFO     | headshot_generator.captcha:_handle_captcha_submission:95 | CAPTCHA verification successful
+2025-10-10 19:10:22 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 19:10:22 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 19:10:22 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 19:10:22 | INFO     | headshot_generator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 19:10:22 | INFO     | headshot_generator.ui.app:run:100 | Starting application run
+2025-10-10 19:10:22 | INFO     | headshot_generator.utils.sample_images:get_sample_images:64 | Found 3 sample images
+2025-10-10 19:10:33 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 19:10:33 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 19:10:33 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 19:10:33 | INFO     | headshot_generator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 19:10:33 | INFO     | headshot_generator.ui.app:run:100 | Starting application run
+2025-10-10 19:10:33 | INFO     | headshot_generator.utils.sample_images:get_sample_images:64 | Found 3 sample images
+2025-10-10 19:10:33 | INFO     | headshot_generator.utils.sample_images:get_sample_images:64 | Found 3 sample images
+2025-10-10 19:10:33 | INFO     | headshot_generator.models.image_data:_optimize_image_for_memory:285 | Image size OK for memory: 427x640
+2025-10-10 19:10:33 | INFO     | headshot_generator.models.image_data:from_sample_image:156 | Successfully loaded sample image: Img 3118 (427x640)
+2025-10-10 19:10:33 | INFO     | headshot_generator.processing.headshot_processor:process_image:78 | Starting headshot processing
+2025-10-10 19:10:33 | INFO     | headshot_generator.processing.headshot_processor:process_image:116 | Detected 1 face(s), using face-based crop
+2025-10-10 19:10:33 | INFO     | headshot_generator.models.image_data:set_processed_image:196 | Processed image set: (400, 500)
+2025-10-10 19:10:33 | INFO     | headshot_generator.processing.headshot_processor:process_image:134 | Successfully processed headshot: (400, 500)
+2025-10-10 19:10:33 | INFO     | headshot_generator.ui.app:_process_current_image:393 | Image processed successfully and cached
+2025-10-10 19:10:33 | INFO     | headshot_generator.ui.app:_handle_sample_image_selection:245 | Sample image selected: Img 3118
+2025-10-10 19:10:39 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 19:10:39 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 19:10:39 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 19:10:39 | INFO     | headshot_generator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 19:10:39 | INFO     | headshot_generator.ui.app:run:100 | Starting application run
+2025-10-10 19:10:39 | INFO     | headshot_generator.utils.sample_images:get_sample_images:64 | Found 3 sample images
+2025-10-10 19:10:39 | INFO     | headshot_generator.utils.sample_images:get_sample_images:64 | Found 3 sample images
+2025-10-10 19:10:39 | INFO     | headshot_generator.models.image_data:_optimize_image_for_memory:285 | Image size OK for memory: 427x640
+2025-10-10 19:10:39 | INFO     | headshot_generator.models.image_data:from_sample_image:156 | Successfully loaded sample image: Img 3120 (427x640)
+2025-10-10 19:10:39 | INFO     | headshot_generator.processing.headshot_processor:process_image:78 | Starting headshot processing
+2025-10-10 19:10:39 | INFO     | headshot_generator.processing.headshot_processor:process_image:116 | Detected 2 face(s), using face-based crop
+2025-10-10 19:10:39 | INFO     | headshot_generator.models.image_data:set_processed_image:196 | Processed image set: (400, 500)
+2025-10-10 19:10:39 | INFO     | headshot_generator.processing.headshot_processor:process_image:134 | Successfully processed headshot: (400, 500)
+2025-10-10 19:10:39 | INFO     | headshot_generator.ui.app:_process_current_image:393 | Image processed successfully and cached
+2025-10-10 19:10:39 | INFO     | headshot_generator.ui.app:_handle_sample_image_selection:245 | Sample image selected: Img 3120
+2025-10-10 19:10:51 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 19:10:51 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 19:10:51 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 19:10:51 | INFO     | headshot_generator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 19:10:51 | INFO     | headshot_generator.ui.app:run:100 | Starting application run
+2025-10-10 19:10:51 | INFO     | headshot_generator.utils.sample_images:get_sample_images:64 | Found 3 sample images
+2025-10-10 19:10:51 | INFO     | headshot_generator.utils.sample_images:get_sample_images:64 | Found 3 sample images
+2025-10-10 19:10:51 | INFO     | headshot_generator.models.image_data:_optimize_image_for_memory:285 | Image size OK for memory: 427x640
+2025-10-10 19:10:51 | INFO     | headshot_generator.models.image_data:from_sample_image:156 | Successfully loaded sample image: Img 3120 (427x640)
+2025-10-10 19:10:51 | INFO     | headshot_generator.processing.headshot_processor:process_image:78 | Starting headshot processing
+2025-10-10 19:10:51 | INFO     | headshot_generator.processing.headshot_processor:process_image:116 | Detected 2 face(s), using face-based crop
+2025-10-10 19:10:51 | INFO     | headshot_generator.models.image_data:set_processed_image:196 | Processed image set: (400, 500)
+2025-10-10 19:10:51 | INFO     | headshot_generator.processing.headshot_processor:process_image:134 | Successfully processed headshot: (400, 500)
+2025-10-10 19:10:51 | INFO     | headshot_generator.ui.app:_process_current_image:393 | Image processed successfully and cached
+2025-10-10 19:10:51 | INFO     | headshot_generator.ui.app:_handle_sample_image_selection:245 | Sample image selected: Img 3120
+2025-10-10 19:10:51 | INFO     | headshot_generator.models.session_state:set_preset:149 | Selected preset: Linkedin
+2025-10-10 19:10:51 | INFO     | headshot_generator.models.session_state:apply_preset:117 | Applied preset configuration: {'target_width': 400, 'target_height': 400, 'padding_top': 0.3, 'padding_bottom': 0.3, 'padding_side': 0.2, 'border_color': '#F3F2EF', 'shift_x': 0, 'shift_y': 0, 'zoom_out_factor': 1.2}
+2025-10-10 19:10:51 | INFO     | headshot_generator.processing.headshot_processor:process_image:78 | Starting headshot processing
+2025-10-10 19:10:51 | INFO     | headshot_generator.processing.headshot_processor:process_image:116 | Detected 2 face(s), using face-based crop
+2025-10-10 19:10:51 | INFO     | headshot_generator.models.image_data:set_processed_image:196 | Processed image set: (400, 400)
+2025-10-10 19:10:51 | INFO     | headshot_generator.processing.headshot_processor:process_image:134 | Successfully processed headshot: (400, 400)
+2025-10-10 19:10:51 | INFO     | headshot_generator.ui.app:_process_current_image:393 | Image processed successfully and cached
+2025-10-10 19:10:51 | INFO     | headshot_generator.utils.config:load_config:42 | Configuration loaded from config.toml
+2025-10-10 19:10:51 | INFO     | headshot_generator.utils.config:_validate_config:81 | Configuration validation passed
+2025-10-10 19:10:51 | INFO     | headshot_generator.processing.headshot_processor:__init__:32 | HeadshotProcessor initialized with cascade: /Users/mjboothaus/Library/Mobile Documents/com~apple~CloudDocs/Headshots/.venv/lib/python3.13/site-packages/cv2/data/haarcascade_frontalface_default.xml
+2025-10-10 19:10:51 | INFO     | headshot_generator.ui.app:__init__:53 | HeadshotApp initialized successfully
+2025-10-10 19:10:51 | INFO     | headshot_generator.ui.app:run:100 | Starting application run
+2025-10-10 19:10:51 | INFO     | headshot_generator.utils.sample_images:get_sample_images:64 | Found 3 sample images
+2025-10-10 19:10:51 | INFO     | headshot_generator.utils.sample_images:get_sample_images:64 | Found 3 sample images
+2025-10-10 19:10:51 | INFO     | headshot_generator.models.image_data:_optimize_image_for_memory:285 | Image size OK for memory: 427x640
+2025-10-10 19:10:51 | INFO     | headshot_generator.models.image_data:from_sample_image:156 | Successfully loaded sample image: Img 3120 (427x640)
+2025-10-10 19:10:51 | INFO     | headshot_generator.processing.headshot_processor:process_image:78 | Starting headshot processing
+2025-10-10 19:10:51 | INFO     | headshot_generator.processing.headshot_processor:process_image:116 | Detected 2 face(s), using face-based crop
+2025-10-10 19:10:51 | INFO     | headshot_generator.models.image_data:set_processed_image:196 | Processed image set: (400, 400)
+2025-10-10 19:10:51 | INFO     | headshot_generator.processing.headshot_processor:process_image:134 | Successfully processed headshot: (400, 400)
+2025-10-10 19:10:51 | INFO     | headshot_generator.ui.app:_process_current_image:393 | Image processed successfully and cached
+2025-10-10 19:10:51 | INFO     | headshot_generator.ui.app:_handle_sample_image_selection:245 | Sample image selected: Img 3120
