@@ -31,8 +31,9 @@ COPY pyproject.toml README.md ./
 # Copy source code (required for editable install)
 COPY src/ ./src/
 COPY config.toml headshot_app.py instructions.md ./
-# Copy only sample images (not personal images that might be in images/)
-COPY images/samples/ ./images/samples/
+# Create images directory and copy only sample images (not personal images that might be in images/)
+RUN mkdir -p images/samples
+COPY images/samples/*.* ./images/samples/
 
 # Create a virtual environment using UV for isolation
 RUN uv venv /opt/venv

@@ -24,7 +24,7 @@ class SampleImageManager:
         self.config_manager = config_manager
         self.samples_dir = Path(config_manager.get_ui_config('sample_images.directory') or 'images/samples')
         self.enabled = config_manager.get_ui_config('sample_images.enabled') or True
-        logger.debug(f"SampleImageManager initialized with directory: {self.samples_dir}")
+        logger.info(f"SampleImageManager initialized with directory: {self.samples_dir.absolute()}") 
     
     def get_sample_images(self) -> List[Dict[str, str]]:
         """Get list of available sample images.
@@ -39,6 +39,12 @@ class SampleImageManager:
         
         if not self.samples_dir.exists():
             logger.warning(f"Sample images directory does not exist: {self.samples_dir}")
+            # Try to create the directory in case it's missing
+            try:
+                self.samples_dir.mkdir(parents=True, exist_ok=True)
+                logger.info(f"Created sample images directory: {self.samples_dir}")
+            except Exception as e:
+                logger.error(f"Could not create sample images directory: {e}")
             return []
         
         # Supported image extensions
