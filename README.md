@@ -1,123 +1,360 @@
-# Headshot Generator
+# Headshot Creator
 
-This Streamlit application generates professional headshots from uploaded images (e.g., PNG, JPG) using OpenCV for face detection and PIL for image processing. It provides an interactive interface to adjust cropping, padding, zooming, and shifting, with real-time previews and annotations.
+A professional Streamlit application that transforms portrait photos into polished headshots using advanced OpenCV face detection and PIL image processing. The app features a modular architecture with intelligent caching, CAPTCHA verification, and extensive customisation options.
 
-## Features
-- **Upload and Process**: Upload a PNG or JPG image and generate a headshot with customisable settings.
-- **Real-Time Adjustments**: Use sliders to adjust target size, padding ratios, shift (X/Y), zoom-out factor, and border color, with immediate updates to the processed image.
-- **Side-by-Side Preview**: View "Before" (original) and "After" (processed) images side by side.
-- **Annotations**: Toggle overlays for face box, padding areas, and final saved area (visible only in preview).
-- **Undo**: Revert up to 5 previous states.
-- **Auto Headshot**: Reset to default settings from `config.toml` and process from the original image.
-- **Download**: Save an annotation-free headshot as `headshot.jpg`.
+## ✨ Key Features
 
-## Installation
+### 🔐 Security & Access
+- **CAPTCHA Verification**: Math-based CAPTCHA system with randomised button positions to prevent automated access
+- **Skip Protection**: Limited attempts with progressive difficulty
+
+### 🎨 Profile-Based Processing
+- **Corporate Profile**: Professional headshots with conservative cropping and styling
+- **Creative Profile**: Artistic headshots with flexible framing options
+- **Custom Profile**: Fully customisable parameters for specific requirements
+- **Alphabetised Dropdown**: Easy profile selection with clear descriptions
+
+### 🖼️ Advanced Image Processing
+- **Smart Face Detection**: OpenCV-powered face detection with fallback center cropping
+- **Real-Time Adjustments**: Live preview updates as you modify settings
+- **Aspect Ratio Preservation**: Maintains image quality without stretching
+- **Intelligent Borders**: Automatic border addition to match target dimensions
+
+### 💾 Output & Export Options
+- **Multiple Formats**: JPG, PNG, WEBP with quality settings
+- **Editable Filenames**: Customise output filename with format-specific extensions
+- **Download Options**: Annotation-free final images
+- **Caching System**: MD5-based caching prevents unnecessary reprocessing
+
+### 🎛️ Interactive Controls
+- **Side-by-Side Preview**: Before/after comparison with zoom and pan
+- **Segmented Controls**: Intuitive format selection interface
+- **Smart Sliders**: Contextual controls with helpful tooltips
+- **Undo System**: Revert to previous processing states (up to 5 levels)
+- **Visual Annotations**: Toggle overlays for face detection, padding areas, and crop boundaries
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Python 3.13+ (tested with Python 3.13 on macOS)
+- [uv](https://docs.astral.sh/uv/) package manager (recommended) or pip
+
+### Installation
 1. **Clone the Repository**:
    ```bash
    git clone https://github.com/Mjboothaus/Headshots.git
    cd Headshots
    ```
-2. **Set Up Virtual Environment and Install Dependencies**:
+
+2. **Install Dependencies**:
    ```bash
+   # Using uv (recommended)
    uv sync
+   
+   # Or using pip
+   pip install -e .
    ```
-   This will create a virtual environment and install all dependencies from `pyproject.toml` automatically.
-3. **Run the App**:
+
+3. **Run the Application**:
    ```bash
+   # Using uv
    uv run streamlit run headshot_app.py
+   
+   # Or using python directly
+   python headshot_app.py
+   
+   # Or using streamlit directly
+   streamlit run headshot_app.py
    ```
-6. **Access the App**: Open the URL (e.g., `http://localhost:8501`) in your browser.
 
-## Usage
-1. **Upload Image**: Select an image via the file uploader. Defaults from `config.toml` are applied ($400 \times 500$, $20\%$ top padding, $50\%$ bottom, $10\%$ sides, $10\%$ zoom-out).
-2. **Adjust Settings**:
-   - **Target Width/Height**: Set output size (default: $400 \times 500$ pixels).
-   - **Top/Bottom/Side Padding Ratio**: Adjust framing (defaults: $0.2$, $0.5$, $0.1$).
-   - **Shift X/Y**: Move crop left/right or up/down (default: $0$ pixels).
-   - **Zoom Out Factor**: Scale crop size (default: $1.1$ for $10\%$ zoom-out).
-   - **Border Colour**: Choose border colour (default: black).
-   - Hover over controls for tooltips.
-3. **Auto Headshot**: Click to reset to `config.toml` defaults and process from the original image.
-4. **Annotations**: Check "Show Annotations on Preview" to see face box (green), padding areas (blue/red/yellow), and final saved area (white).
-5. **Undo**: Revert to previous states (up to 5).
-6. **Download**: Save the processed headshot as `headshot.jpg` (annotation-free).
+4. **Access the App**: Open your browser to `http://localhost:8501`
 
-## Configuration
-Settings are defined in `config.toml`:
-- **[default]**: Default values for sliders (e.g., `target_width = 400`, `zoom_out_factor = 1.1`).
-- **[slider]**: Min/max ranges for sliders (e.g., `zoom_out_min = 1.0`, `zoom_out_max = 1.5`).
+### Development Setup
+For development with auto-reload:
+```bash
+uv run streamlit run headshot_app.py --server.runOnSave true
+```
 
-## Mathematical Explanation of Transforms
-The app applies a series of transformations to generate a headshot. Below are the mathematical details for each step:
+## 📚 Usage Guide
+
+### Step 1: Verification
+Upon first access, solve the CAPTCHA math problem and click the correct "Submit" button (positions randomised for security).
+
+### Step 2: Upload Your Image
+- Drag and drop or browse to select a portrait image (PNG, JPG, JPEG, WEBP)
+- The app automatically applies face detection and default settings
+- Supports images up to 200MB with helpful file size warnings
+
+### Step 3: Choose Your Profile
+Select from the dropdown menu:
+- **Corporate**: Professional headshots (400×500px, conservative cropping)
+- **Creative**: Artistic headshots (500×600px, flexible framing) 
+- **LinkedIn**: Social media optimised (400×400px square)
+- **Website**: Web-ready format (300×400px)
+- **Custom**: Full manual control over all parameters
+
+### Step 4: Customise Settings
+**Output Format & Filename**:
+- Choose format: JPG, PNG, or WEBP using segmented controls
+- Edit filename with automatic extension updates
+- Adjust quality settings for JPG/WEBP formats
+
+**Image Adjustments** (visible with Custom profile or manual overrides):
+- **Target Dimensions**: Set exact output width and height
+- **Padding Ratios**: Adjust space around face (top, bottom, sides)
+- **Shift Controls**: Move crop area horizontally and vertically
+- **Zoom Factor**: Scale the crop area (1.0 = exact face size)
+- **Border Colour**: Choose background colour for added borders
+
+### Step 5: Preview & Refine
+- **Side-by-Side View**: Compare original and processed images
+- **Live Updates**: Changes reflect immediately with intelligent caching
+- **Annotations**: Toggle overlays to see face detection and crop areas
+- **Zoom & Pan**: Examine details in the preview images
+
+### Step 6: Download
+- Click "Download" to save your headshot
+- Files saved with custom names and selected format
+- Processing cached to avoid regeneration on repeated downloads
+
+### Additional Features
+- **Undo System**: Revert to previous states (up to 5 levels)
+- **Auto Headshot**: Quick reset to profile defaults
+- **Smart Caching**: Prevents reprocessing identical settings
+- **Responsive Design**: Works on desktop and tablet devices
+
+## ⚙️ Configuration
+
+### Application Settings (`config.toml`)
+The app uses a comprehensive TOML configuration file with the following sections:
+
+**UI Configuration**:
+- `[ui]`: Application title, warnings, labels, and help text
+- `[ui.profiles]`: Profile descriptions and display names
+- `[ui.formats]`: Output format options and quality settings
+
+**Processing Defaults**:
+- `[profiles.corporate]`, `[profiles.creative]`, etc.: Profile-specific parameters
+- `[profiles.custom]`: Default values for custom profile
+
+**Slider Ranges**:
+- `[slider_config]`: Min/max values and step sizes for all sliders
+- `[quality_config]`: Quality settings for different output formats
+
+**System Settings**:
+- `[system]`: Logging levels, cache settings, file size limits
+
+### Example Profile Configuration
+```toml
+[profiles.corporate]
+target_width = 400
+target_height = 500
+top_padding_ratio = 0.2
+bottom_padding_ratio = 0.5
+side_padding_ratio = 0.1
+zoom_out_factor = 1.1
+border_color = "black"
+```
+
+## 🏠 Technical Architecture
+
+### Project Structure
+```
+src/headshot_generator/
+├── __init__.py              # Package entry point
+├── captcha.py               # CAPTCHA verification system
+├── constants.py             # Application constants
+├── models/                  # Data models
+│   ├── image_data.py        # Image data structures
+│   └── session_state.py     # Session state management
+├── processing/              # Image processing logic
+│   └── headshot_processor.py # Core processing algorithms
+├── ui/                      # User interface components
+│   ├── app.py               # Main application UI
+│   └── sidebar.py           # Sidebar controls
+└── utils/                   # Utilities and helpers
+    ├── config.py            # Configuration management
+    ├── exceptions.py        # Custom exceptions
+    └── logger.py            # Logging utilities
+```
+
+### Key Components
+
+**HeadshotApp** (`ui/app.py`): Main application controller that coordinates all components
+
+**HeadshotProcessor** (`processing/headshot_processor.py`): Core image processing with OpenCV integration
+
+**StreamlitCaptcha** (`captcha.py`): Security verification with math problems and UI tricks
+
+**ConfigManager** (`utils/config.py`): Centralised configuration loading and validation
+
+**ImageData & SessionStateManager** (`models/`): Data structures for image handling and session management
+
+## 🔢 Image Processing Mathematics
+
+The application applies a sophisticated series of transformations to generate professional headshots. Below are the mathematical details:
 
 ### 1. Face Detection
-- **Method**: OpenCV’s Haar Cascade classifier detects the face, returning a bounding box $(x, y, w, h)$, where:
-  - $(x, y)$: Top-left corner of the face in the original image (pixels).
-  - $w, h$: Face width and height (pixels).
-- If no face is detected, a center crop is used based on the target aspect ratio.
+**Method**: OpenCV Haar Cascade classifier detects faces, returning bounding boxes $(x, y, w, h)$:
+- $(x, y)$: Top-left corner coordinates (pixels)
+- $(w, h)$: Face width and height (pixels)
+- **Fallback**: If no faces detected, uses centre-crop based on target aspect ratio
 
-### 2. Padding
-Padding is added around the face based on ratios relative to face dimensions:
-- Top padding: $p_t = h \cdot r_t$, where $r_t$ is the top padding ratio (e.g., $0.2$).
-- Bottom padding: $p_b = h \cdot r_b$, where $r_b$ is the bottom padding ratio (e.g., $0.5$).
-- Side padding (per side): $p_s = w \cdot r_s$, where $r_s$ is the side padding ratio (e.g., $0.1$).
+### 2. Padding Calculation
+Padding is applied around the detected face using configurable ratios:
+- Top padding: $p_t = \lfloor h \cdot r_t \rfloor$
+- Bottom padding: $p_b = \lfloor h \cdot r_b \rfloor$
+- Side padding (each side): $p_s = \lfloor w \cdot r_s \rfloor$
 
-### 3. Zoom-Out
-The crop box is scaled by a zoom-out factor $z$ (e.g., $1.1$ for $10\%$ zoom-out):
-- Crop width: $w_c = (w + 2 \cdot p_s) \cdot z$.
-- Crop height: $h_c = (h + p_t + p_b) \cdot z$.
+Where $r_t, r_b, r_s$ are the top, bottom, and side padding ratios.
 
-### 4. Shifting
-The crop box center is offset by shifts $s_x, s_y$ (in pixels):
-- Crop left: $x_c = \max(0, x + \frac{w}{2} - \frac{w_c}{2} + s_x)$.
-- Crop top: $y_c = \max(0, y + \frac{h}{2} - \frac{h_c}{2} + s_y)$.
-- Crop right: $x_r = \min(\text{image width}, x_c + w_c)$.
-- Crop bottom: $y_b = \min(\text{image height}, y_c + h_c)$.
-- Boundaries are adjusted to stay within the image:
-  - If $x_r > \text{image width}$, set $x_c = x_c - (x_r - \text{image width})$, $x_r = \text{image width}$.
-  - If $y_b > \text{image height}$, set $y_c = y_c - (y_b - \text{image height})$, $y_b = \text{image height}$.
-  - If $x_c < 0$, set $x_r = x_r - x_c$, $x_c = 0$.
-  - If $y_c < 0$, set $y_b = y_b - y_c$, $y_c = 0$.
+### 3. Zoom Factor Application
+The crop dimensions are scaled by zoom-out factor $z$:
+- Initial crop width: $w_{crop} = \lfloor (w + 2p_s) \cdot z \rfloor$
+- Initial crop height: $h_{crop} = \lfloor (h + p_t + p_b) \cdot z \rfloor$
 
-### 5. Aspect Ratio Preservation
-The crop is adjusted to match the target aspect ratio $r = \frac{w_t}{h_t}$, where $w_t, h_t$ are target width and height:
-- If $\frac{w_c}{h_c} > r$:
-  - New height: $h_c' = \frac{w_c}{r}$.
-  - Update: $y_c' = \max(0, y_c - \frac{h_c' - h_c}{2})$, $y_b' = \min(\text{image height}, y_c' + h_c')$.
-- If $\frac{w_c}{h_c} \leq r$:
-  - New width: $w_c' = h_c \cdot r$.
-  - Update: $x_c' = \max(0, x_c - \frac{w_c' - w_c}{2})$, $x_r' = \min(\text{image width}, x_c' + w_c')$.
+### 4. Crop Positioning with Shifts
+Crop centre is calculated from face centre with user-defined shifts:
+- Crop left: $x_{left} = x + \frac{w}{2} - \frac{w_{crop}}{2} + s_x$
+- Crop top: $y_{top} = y + \frac{h}{2} - \frac{h_{crop}}{2} + s_y$
+- Crop bounds: $(x_{left}, y_{top}, x_{left} + w_{crop}, y_{top} + h_{crop})$
 
-### 6. Resizing and Borders
-- The cropped image is scaled to fit within $w_t \times h_t$ using `thumbnail` (preserving aspect ratio).
-- Borders are added to match the exact target size:
-  - Border width: $\frac{w_t - w_{\text{cropped}}}{2}$.
-  - Border height: $\frac{h_t - h_{\text{cropped}}}{2}$.
-- The final image is resized to $w_t \times h_t$ using Lanczos interpolation.
+Where $s_x, s_y$ are horizontal and vertical shift values.
 
-### 7. Annotations (Optional)
-- Face box, padding areas, and final saved area are drawn on the preview (scaled to final image coordinates).
-- Scaling factors: $s_x = \frac{w_{\text{final}}}{x_r - x_c}$, $s_y = \frac{h_{\text{final}}}{y_b - y_c}$.
-- Coordinates are adjusted (e.g., face box: $(s_x \cdot (x - x_c), s_y \cdot (y - y_c))$).
+### 5. Boundary Constraints
+Crop bounds are constrained to image dimensions using boundary adjustment:
+```
+if left < 0: right ← right - left, left ← 0
+if top < 0: bottom ← bottom - top, top ← 0  
+if right > W: left ← left - (right - W), right ← W
+if bottom > H: top ← top - (bottom - H), bottom ← H
+```
 
-## Troubleshooting
-- **Image Not Updating**: If sliders (e.g., zoom-out) don’t update the "After" image, check `key` parameters in `headshot_app.py` and ensure `config.toml` is present. Upload the image for debugging.
-- **Face Detection Issues**: If "No face detected" appears, adjust `scaleFactor` (e.g., $1.05$) or `minNeighbors` (e.g., $3$) in `headshot_app.py` (line 62). Upload the image for specific tweaks.
-- **Dependencies**: Add new packages if needed:
-  ```bash
-  uv add package-name
+### 6. Aspect Ratio Adjustment
+Crop is adjusted to match target aspect ratio $r = \frac{w_t}{h_t}$:
+
+**If crop is too wide** ($\frac{w_{crop}}{h_{crop}} > r$):
+- New height: $h_{new} = \lfloor \frac{w_{crop}}{r} \rfloor$
+- Adjust vertical position: $y_{top} \leftarrow \max(0, y_{top} - \frac{h_{new} - h_{crop}}{2})$
+
+**If crop is too tall** ($\frac{w_{crop}}{h_{crop}} \leq r$):
+- New width: $w_{new} = \lfloor h_{crop} \cdot r \rfloor$  
+- Adjust horizontal position: $x_{left} \leftarrow \max(0, x_{left} - \frac{w_{new} - w_{crop}}{2})$
+
+### 7. Final Image Processing
+**Aspect-Preserving Resize**:
+- Scale factor: $s = \min(\frac{w_t}{w_{crop}}, \frac{h_t}{h_{crop}})$
+- New dimensions: $(w_{new}, h_{new}) = (\lfloor w_{crop} \cdot s \rfloor, \lfloor h_{crop} \cdot s \rfloor)$
+- **Interpolation**: Lanczos resampling for high quality
+
+**Border Addition**:
+- Create canvas of size $(w_t, h_t)$ with selected border colour
+- Centre resized image: $(\frac{w_t - w_{new}}{2}, \frac{h_t - h_{new}}{2})$
+- **Result**: Final image exactly $(w_t, h_t)$ pixels with preserved aspect ratio
+
+### 8. Caching & Optimization
+**Cache Key Generation**: MD5 hash of processing parameters:
+```
+hash = MD5(target_size + padding_ratios + shifts + zoom + border_color)
+```
+- **Cache Hit**: Return cached result without reprocessing
+- **Cache Miss**: Process image and store result with computed hash key
+
+## 🔧 Troubleshooting
+
+### Common Issues
+
+**🔄 UI Not Updating / Caching Issues**:
+- Clear browser cache and refresh (`Ctrl+F5` / `Cmd+Shift+R`)
+- Check `logs/` directory for error messages
+- Ensure `config.toml` is present and properly formatted
+- Restart the application if session state becomes corrupted
+
+**🎭 CAPTCHA Problems**:
+- If CAPTCHA appears repeatedly, clear browser cookies for localhost
+- Math problems use integer arithmetic - check for decimal inputs
+- Button positions are randomised - look for "Submit" vs "Cancel" labels
+
+**🔎 Face Detection Issues**:
+- **"No face detected"**: The system falls back to centre crop automatically
+- **Poor detection**: Ensure good lighting and face is clearly visible
+- **Multiple faces**: System uses the largest detected face
+- Adjust detection parameters in `src/headshot_generator/constants.py`:
+  ```python
+  DEFAULT_FACE_DETECTION_PARAMS = {
+      "scaleFactor": 1.1,    # Try 1.05 for more sensitive detection
+      "minNeighbors": 5,     # Try 3-7 for different sensitivity
+      "minSize": (30, 30)    # Minimum face size
+  }
   ```
-  Or sync existing dependencies:
-  ```bash
-  uv sync
-  ```
-- **Python Version**: Python 3.13 should work, but if issues arise, try Python 3.11:
-  ```bash
-  uv venv --python 3.11
-  uv sync
-  ```
 
-## Notes
-- Tested with Python 3.13 on macOS in Warp.
-- Example images can be placed in the `images/` directory.
-- For further customisation (e.g., reset button, custom annotations), modify `headshot_app.py` or `config.toml` and share requirements.
+**💾 File Processing Errors**:
+- **Large files**: App supports up to 200MB but processing may be slow
+- **Unsupported formats**: Convert to JPG, PNG, or WEBP
+- **Memory errors**: Restart application or reduce image size
+- **Permission errors**: Check file system permissions in upload directory
+
+**🚀 Performance Issues**:
+- **Slow processing**: Large images take longer - consider resizing input
+- **Cache not working**: Check session state persistence and file permissions
+- **High memory usage**: Restart application periodically during heavy use
+
+### Development & Dependencies
+
+**Package Management**:
+```bash
+# Add new dependencies
+uv add package-name
+
+# Update existing packages  
+uv sync --upgrade
+
+# Reinstall from scratch
+rm -rf .venv uv.lock
+uv sync
+```
+
+**Python Version Issues**:
+```bash
+# Recommended: Python 3.13
+uv python install 3.13
+uv venv --python 3.13
+
+# Fallback: Python 3.11 if 3.13 has issues
+uv venv --python 3.11
+uv sync
+```
+
+**Configuration Debugging**:
+```bash
+# Validate config.toml syntax
+python -c "import toml; print('Config valid:', toml.load('config.toml'))"
+
+# Check package installation
+uv run python -c "from headshot_generator import HeadshotApp; print('Import successful')"
+
+# View detailed logs
+tail -f logs/headshot_generator.log
+```
+
+### Getting Help
+
+**Log Files**: Check `logs/headshot_generator.log` for detailed error information
+
+**System Requirements**: 
+- Python 3.13+ (3.11+ supported)
+- 4GB+ RAM recommended
+- OpenCV-compatible system (headless version used)
+
+**Reporting Issues**: Include log files, `config.toml`, and system information when reporting problems
+
+---
+
+## 📝 Notes
+
+- **Tested Environment**: Python 3.13 on macOS using Warp terminal
+- **Sample Images**: Place test images in `images/` directory for development
+- **Browser Compatibility**: Tested with Chrome, Firefox, Safari, Edge
+- **Mobile Support**: Responsive design works on tablets, limited phone support
+- **Docker Deployment**: See `Dockerfile` and `DEPLOY.md` for containerisation
+- **Custom Profiles**: Edit `config.toml` to create new processing profiles
