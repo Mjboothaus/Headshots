@@ -6,9 +6,9 @@ import io
 import tempfile
 from pathlib import Path
 
-from headshot_generator.utils.config import ConfigManager
-from headshot_generator.models.image_data import ImageData
-from headshot_generator.models.session_state import SessionState, ProcessingParameters
+from headshot_curator.utils.config import ConfigManager
+from headshot_curator.models.image_data import ImageData
+from headshot_curator.models.session_state import SessionState, ProcessingParameters
 
 
 @pytest.fixture

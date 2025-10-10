@@ -3,8 +3,8 @@
 import pytest
 from pathlib import Path
 
-from headshot_generator.utils.config import ConfigManager
-from headshot_generator.utils.exceptions import ConfigurationError
+from headshot_curator.utils.config import ConfigManager
+from headshot_curator.utils.exceptions import ConfigurationError
 
 
 class TestConfigManager:

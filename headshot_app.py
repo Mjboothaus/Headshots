@@ -1,6 +1,6 @@
 """Main entry point for the Headshot Generator application."""
 
-from headshot_generator import HeadshotApp
+from headshot_curator import HeadshotApp
 
 
 def main():

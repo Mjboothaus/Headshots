@@ -4,8 +4,8 @@ import pytest
 from PIL import Image
 import io
 
-from headshot_generator.models.image_data import ImageData
-from headshot_generator.utils.exceptions import ValidationError, ImageProcessingError
+from headshot_curator.models.image_data import ImageData
+from headshot_curator.utils.exceptions import ValidationError, ImageProcessingError
 
 
 class TestImageData:

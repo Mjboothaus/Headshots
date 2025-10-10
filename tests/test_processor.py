@@ -6,8 +6,8 @@ import numpy as np
 from PIL import Image
 import pathlib
 
-from headshot_generator.processing.headshot_processor import HeadshotProcessor
-from headshot_generator.utils.exceptions import ImageProcessingError, ValidationError
+from headshot_curator.processing.headshot_processor import HeadshotProcessor
+from headshot_curator.utils.exceptions import ImageProcessingError, ValidationError
 
 
 class TestHeadshotProcessor:

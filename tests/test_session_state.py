@@ -2,8 +2,8 @@
 
 import pytest
 
-from headshot_generator.models.session_state import SessionState, ProcessingParameters
-from headshot_generator.utils.exceptions import ValidationError
+from headshot_curator.models.session_state import SessionState, ProcessingParameters
+from headshot_curator.utils.exceptions import ValidationError
 
 
 class TestProcessingParameters:
